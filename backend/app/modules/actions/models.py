@@ -1,5 +1,5 @@
-"""
-Actions module — SQLAlchemy models.
+﻿"""
+Actions module â€” SQLAlchemy models.
 
 Tasks, email drafts, action proposals, and execution tracking.
 All actions require approval before execution.
@@ -114,7 +114,7 @@ class Task(Base):
 class ActionRun(Base, kw_only=True):
     """An AI-proposed action requiring approval before execution.
 
-    Tracks the full lifecycle: propose → approve/reject → execute → result.
+    Tracks the full lifecycle: propose â†’ approve/reject â†’ execute â†’ result.
     """
 
     __tablename__ = "action_runs"

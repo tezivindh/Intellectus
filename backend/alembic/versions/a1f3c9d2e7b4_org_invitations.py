@@ -1,4 +1,4 @@
-"""org_invitations
+﻿"""org_invitations
 
 Revision ID: a1f3c9d2e7b4
 Revises: 6cb39eb41321

@@ -1,4 +1,4 @@
-{{- $services := list
+﻿{{- $services := list
   (dict "name" "postgres" "image" "postgres:16-alpine" "port" 5432 "uid" 70 "path" "/var/lib/postgresql/data" "memory" "384Mi")
   (dict "name" "redis" "image" "redis:7-alpine" "port" 6379 "uid" 999 "path" "/data" "memory" "128Mi")
   (dict "name" "minio" "image" "cgr.dev/chainguard/minio@sha256:f74600a1a46330cdbda1ef760d17a96bd6e0f4a6f0a2c49792ca3ee7e4c6fa18" "port" 9000 "uid" 65532 "path" "/data" "memory" "512Mi")
@@ -9,9 +9,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "knowops.name" $ }}-{{ $service.name }}
+  name: {{ include "Intellectus.name" $ }}-{{ $service.name }}
   labels:
-    {{- include "knowops.labels" $ | nindent 4 }}
+    {{- include "Intellectus.labels" $ | nindent 4 }}
 spec:
   accessModes: [ReadWriteOnce]
   {{- with $.Values.persistence.storageClass }}
@@ -24,17 +24,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "knowops.name" $ }}-{{ $service.name }}
+  name: {{ include "Intellectus.name" $ }}-{{ $service.name }}
   labels:
-    {{- include "knowops.labels" $ | nindent 4 }}
+    {{- include "Intellectus.labels" $ | nindent 4 }}
 spec:
   replicas: 1
   strategy: { type: Recreate }
   selector:
-    matchLabels: { app: {{ include "knowops.name" $ }}-{{ $service.name }} }
+    matchLabels: { app: {{ include "Intellectus.name" $ }}-{{ $service.name }} }
   template:
     metadata:
-      labels: { app: {{ include "knowops.name" $ }}-{{ $service.name }} }
+      labels: { app: {{ include "Intellectus.name" $ }}-{{ $service.name }} }
     spec:
       automountServiceAccountToken: false
       securityContext:
@@ -46,8 +46,8 @@ spec:
           image: {{ $service.image | quote }}
           {{- if eq $service.name "postgres" }}
           env:
-            - { name: POSTGRES_USER, value: knowops }
-            - { name: POSTGRES_DB, value: knowops }
+            - { name: POSTGRES_USER, value: Intellectus }
+            - { name: POSTGRES_DB, value: Intellectus }
             - { name: PGDATA, value: /var/lib/postgresql/data/pgdata }
             - name: POSTGRES_PASSWORD
               valueFrom:
@@ -66,7 +66,7 @@ spec:
           {{- end }}
           ports: [{ name: service, containerPort: {{ $service.port }} }]
           securityContext:
-            {{- include "knowops.security" $ | nindent 12 }}
+            {{- include "Intellectus.security" $ | nindent 12 }}
           resources:
             requests: { cpu: 25m, memory: 64Mi }
             limits: { cpu: 500m, memory: {{ $service.memory }} }
@@ -84,7 +84,7 @@ spec:
       volumes:
         - name: data
           {{- if $.Values.persistence.enabled }}
-          persistentVolumeClaim: { claimName: {{ include "knowops.name" $ }}-{{ $service.name }} }
+          persistentVolumeClaim: { claimName: {{ include "Intellectus.name" $ }}-{{ $service.name }} }
           {{- else }}
           emptyDir: {}
           {{- end }}
@@ -96,12 +96,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "knowops.name" $ }}-{{ $service.name }}
+  name: {{ include "Intellectus.name" $ }}-{{ $service.name }}
   labels:
-    {{- include "knowops.labels" $ | nindent 4 }}
+    {{- include "Intellectus.labels" $ | nindent 4 }}
 spec:
   type: ClusterIP
-  selector: { app: {{ include "knowops.name" $ }}-{{ $service.name }} }
+  selector: { app: {{ include "Intellectus.name" $ }}-{{ $service.name }} }
   ports: [{ name: service, port: {{ $service.port }}, targetPort: service }]
 ---
 {{- end }}

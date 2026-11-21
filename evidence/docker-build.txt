@@ -1,4 +1,4 @@
-Compose now can delegate build to bake for better performances
+﻿Compose now can delegate build to bake for better performances
 Just set COMPOSE_BAKE=true
 #0 building with "default" instance using docker driver
 
@@ -25,7 +25,7 @@ Just set COMPOSE_BAKE=true
 #6 transferring context: 22.82kB 0.0s done
 #6 DONE 0.0s
 
-#7 [backend python-base 2/2] RUN apk add --no-cache python-3.12 libgomp libstdc++     && mkdir -p /home/knowops/.cache/fastembed     && chown -R 10001:10001 /home/knowops
+#7 [backend python-base 2/2] RUN apk add --no-cache python-3.12 libgomp libstdc++     && mkdir -p /home/Intellectus/.cache/fastembed     && chown -R 10001:10001 /home/Intellectus
 #7 CACHED
 
 #8 [backend builder 1/6] WORKDIR /build
@@ -64,7 +64,7 @@ Just set COMPOSE_BAKE=true
 #18 [next next-runtime 5/7] COPY --from=build --chown=10001:10001 /build/.next/standalone ./
 #18 CACHED
 
-#19 [next next-runtime 3/7] RUN addgroup -g 10001 knowops && adduser -D -u 10001 -G knowops knowops
+#19 [next next-runtime 3/7] RUN addgroup -g 10001 Intellectus && adduser -D -u 10001 -G Intellectus Intellectus
 #19 CACHED
 
 #20 [next build 2/7] WORKDIR /build
@@ -97,9 +97,9 @@ Just set COMPOSE_BAKE=true
 #28 exporting config sha256:ca4dbe246d1165423b8a6a05ad3b22c74233f6cb1899b59f5c5411edd0353e15 done
 #28 exporting attestation manifest sha256:71855f1d58e98446d6053e70ca4b8d4b605087e0ebbf0b72108bb766d8868afb done
 #28 exporting manifest list sha256:89c1fb06ecb40a3159f8125d2233b14c3fc1254f0203be3bff56266746610c16 done
-#28 naming to docker.io/library/knowops-next:local
-#28 naming to docker.io/library/knowops-next:local done
-#28 unpacking to docker.io/library/knowops-next:local done
+#28 naming to docker.io/library/Intellectus-next:local
+#28 naming to docker.io/library/Intellectus-next:local done
+#28 unpacking to docker.io/library/Intellectus-next:local done
 #28 DONE 0.1s
 
 #29 [next] resolving provenance for metadata file
@@ -364,16 +364,16 @@ Just set COMPOSE_BAKE=true
 #11 18.20 Downloading fastapi-0.143.3-py3-none-any.whl (144 kB)
 #11 18.28 Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
 #11 18.33 Downloading sqlalchemy-2.1.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
-#11 19.17    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 6.0 MB/s  0:00:00
+#11 19.17    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 4.7/4.7 MB 6.0 MB/s  0:00:00
 #11 19.19 Downloading asyncpg-0.32.0-cp312-cp312-manylinux_2_28_x86_64.whl (3.8 MB)
-#11 19.54    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 10.9 MB/s  0:00:00
+#11 19.54    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 3.8/3.8 MB 10.9 MB/s  0:00:00
 #11 19.56 Downloading alembic-1.20.0-py3-none-any.whl (268 kB)
 #11 19.59 Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
 #11 19.66 Downloading pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
-#11 19.79    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 16.5 MB/s  0:00:00
+#11 19.79    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 2.2/2.2 MB 16.5 MB/s  0:00:00
 #11 19.81 Downloading pydantic_settings-2.16.0-py3-none-any.whl (80 kB)
 #11 19.85 Downloading passlib-1.7.4-py2.py3-none-any.whl (525 kB)
-#11 19.89    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.6/525.6 kB 16.7 MB/s  0:00:00
+#11 19.89    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 525.6/525.6 kB 16.7 MB/s  0:00:00
 #11 19.92 Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (278 kB)
 #11 19.97 Downloading celery-5.6.3-py3-none-any.whl (451 kB)
 #11 20.02 Downloading billiard-4.3.1-py3-none-any.whl (90 kB)
@@ -381,37 +381,37 @@ Just set COMPOSE_BAKE=true
 #11 20.08 Downloading vine-5.1.0-py3-none-any.whl (9.6 kB)
 #11 20.10 Downloading minio-7.2.20-py3-none-any.whl (93 kB)
 #11 20.13 Downloading openai-3.31.0-py3-none-any.whl (2.2 MB)
-#11 20.32    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 11.6 MB/s  0:00:00
+#11 20.32    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 2.2/2.2 MB 11.6 MB/s  0:00:00
 #11 20.33 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
 #11 20.37 Downloading httpx2-2.13.1-py3-none-any.whl (95 kB)
 #11 20.40 Downloading httpcore2-2.13.1-py3-none-any.whl (83 kB)
 #11 20.45 Downloading jiter-0.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (345 kB)
 #11 20.49 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
 #11 20.55 Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
-#11 20.67    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 9.7 MB/s  0:00:00
+#11 20.67    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 1.2/1.2 MB 9.7 MB/s  0:00:00
 #11 20.70 Downloading fastembed-0.9.0-py3-none-any.whl (142 kB)
 #11 20.74 Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
-#11 20.78    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 19.1 MB/s  0:00:00
+#11 20.78    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 846.4/846.4 kB 19.1 MB/s  0:00:00
 #11 20.81 Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
 #11 20.87 Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
-#11 21.24    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 11.1 MB/s  0:00:00
+#11 21.24    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 4.2/4.2 MB 11.1 MB/s  0:00:00
 #11 21.26 Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
 #11 21.28 Downloading loguru-0.7.3-py3-none-any.whl (61 kB)
 #11 21.31 Downloading mmh3-5.3.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (103 kB)
 #11 21.33 Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
-#11 21.66    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 20.9 MB/s  0:00:00
+#11 21.66    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 6.9/6.9 MB 20.9 MB/s  0:00:00
 #11 21.70 Downloading py_rust_stemmers-0.1.8-cp312-cp312-manylinux_2_28_x86_64.whl (323 kB)
 #11 21.74 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
 #11 21.77 Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
 #11 21.81 Downloading idna-3.20-py3-none-any.whl (69 kB)
 #11 21.85 Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
-#11 22.03    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 18.2 MB/s  0:00:00
+#11 22.03    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 3.4/3.4 MB 18.2 MB/s  0:00:00
 #11 22.06 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
 #11 22.08 Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
 #11 22.12 Downloading pypdf-6.21.0-py3-none-any.whl (405 kB)
 #11 22.18 Downloading python_docx-1.2.0-py3-none-any.whl (252 kB)
 #11 22.21 Downloading chardet-7.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.5 MB)
-#11 22.27    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 22.4 MB/s  0:00:00
+#11 22.27    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 1.5/1.5 MB 22.4 MB/s  0:00:00
 #11 22.30 Downloading python_ulid-4.0.1-py3-none-any.whl (14 kB)
 #11 22.32 Downloading structlog-26.1.0-py3-none-any.whl (73 kB)
 #11 22.36 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
@@ -421,7 +421,7 @@ Just set COMPOSE_BAKE=true
 #11 22.49 Downloading click_plugins-1.1.1.2-py2.py3-none-any.whl (11 kB)
 #11 22.51 Downloading click_repl-0.4.1-py3-none-any.whl (14 kB)
 #11 22.53 Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
-#11 22.72    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 26.1 MB/s  0:00:00
+#11 22.72    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 4.8/4.8 MB 26.1 MB/s  0:00:00
 #11 22.73 Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
 #11 22.77 Downloading email_validator-2.3.0-py3-none-any.whl (35 kB)
 #11 22.80 Downloading dnspython-2.9.0-py3-none-any.whl (354 kB)
@@ -430,13 +430,13 @@ Just set COMPOSE_BAKE=true
 #11 22.90 Downloading agent_detector-2.0.0-py3-none-any.whl (9.4 kB)
 #11 22.92 Downloading detect_installer-0.2.1-py3-none-any.whl (5.4 kB)
 #11 22.95 Downloading fastar-0.12.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (808 kB)
-#11 22.98    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 808.1/808.1 kB 30.4 MB/s  0:00:00
+#11 22.98    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 808.1/808.1 kB 30.4 MB/s  0:00:00
 #11 23.00 Downloading filelock-4.2.0-py3-none-any.whl (135 kB)
 #11 23.02 Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
 #11 23.05 Downloading grpcio-1.84.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.2 MB)
-#11 23.36    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 24.2 MB/s  0:00:00
+#11 23.36    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 7.2/7.2 MB 24.2 MB/s  0:00:00
 #11 23.38 Downloading grpcio_tools-1.84.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.8 MB)
-#11 23.53    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 20.2 MB/s  0:00:00
+#11 23.53    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 2.8/2.8 MB 20.2 MB/s  0:00:00
 #11 23.56 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
 #11 23.60 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 #11 23.63 Downloading h2-4.4.1-py3-none-any.whl (62 kB)
@@ -446,12 +446,12 @@ Just set COMPOSE_BAKE=true
 #11 23.73 Downloading kombu-5.6.2-py3-none-any.whl (214 kB)
 #11 23.76 Downloading amqp-5.4.1-py3-none-any.whl (51 kB)
 #11 23.78 Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
-#11 24.01    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 23.3 MB/s  0:00:00
+#11 24.01    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 5.2/5.2 MB 23.3 MB/s  0:00:00
 #11 24.04 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
 #11 24.06 Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
-#11 25.20    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 14.7 MB/s  0:00:01
+#11 25.20    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 16.7/16.7 MB 14.7 MB/s  0:00:01
 #11 25.23 Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl (23.8 MB)
-#11 26.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB 18.7 MB/s  0:00:01
+#11 26.51    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 23.8/23.8 MB 18.7 MB/s  0:00:01
 #11 26.53 Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
 #11 26.56 Downloading opentelemetry_exporter_otlp_proto_http-1.45.1-py3-none-any.whl (22 kB)
 #11 26.59 Downloading opentelemetry_exporter_http_transport-0.66b1-py3-none-any.whl (12 kB)
@@ -467,22 +467,22 @@ Just set COMPOSE_BAKE=true
 #11 26.93 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
 #11 26.97 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
 #11 26.99 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
-#11 27.03    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 24.7 MB/s  0:00:00
+#11 27.03    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 807.9/807.9 kB 24.7 MB/s  0:00:00
 #11 27.05 Downloading rich_toolkit-0.20.6-py3-none-any.whl (39 kB)
 #11 27.08 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
 #11 27.13 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
-#11 27.19    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 19.1 MB/s  0:00:00
+#11 27.19    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 1.3/1.3 MB 19.1 MB/s  0:00:00
 #11 27.21 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
 #11 27.26 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 #11 27.28 Downloading rignore-0.8.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (927 kB)
-#11 27.33    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 927.8/927.8 kB 26.1 MB/s  0:00:00
+#11 27.33    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 927.8/927.8 kB 26.1 MB/s  0:00:00
 #11 27.37 Downloading sentry_sdk-2.72.0-py3-none-any.whl (544 kB)
-#11 27.41    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 544.8/544.8 kB 14.7 MB/s  0:00:00
+#11 27.41    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 544.8/544.8 kB 14.7 MB/s  0:00:00
 #11 27.43 Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
-#11 27.48    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 20.1 MB/s  0:00:00
+#11 27.48    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 818.2/818.2 kB 20.1 MB/s  0:00:00
 #11 27.50 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
 #11 27.52 Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
-#11 27.58    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 10.0 MB/s  0:00:00
+#11 27.58    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 621.4/621.4 kB 10.0 MB/s  0:00:00
 #11 27.60 Downloading starlette-1.8.0-py3-none-any.whl (79 kB)
 #11 27.64 Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
 #11 27.66 Downloading typer-0.27.3-py3-none-any.whl (123 kB)
@@ -490,12 +490,12 @@ Just set COMPOSE_BAKE=true
 #11 27.71 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
 #11 27.73 Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)
 #11 27.77 Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (552 kB)
-#11 27.81    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 552.8/552.8 kB 21.1 MB/s  0:00:00
+#11 27.81    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 552.8/552.8 kB 21.1 MB/s  0:00:00
 #11 27.83 Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)
-#11 28.08    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 18.1 MB/s  0:00:00
+#11 28.08    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 4.5/4.5 MB 18.1 MB/s  0:00:00
 #11 28.10 Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
 #11 28.14 Downloading wcwidth-0.9.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (769 kB)
-#11 28.19    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.8/769.8 kB 19.3 MB/s  0:00:00
+#11 28.19    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 769.8/769.8 kB 19.3 MB/s  0:00:00
 #11 28.21 Downloading websockets-17.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (225 kB)
 #11 28.25 Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
 #11 28.28 Downloading argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (26 kB)
@@ -504,9 +504,9 @@ Just set COMPOSE_BAKE=true
 #11 28.39 Downloading mako-1.4.3-py3-none-any.whl (80 kB)
 #11 28.41 Downloading pycparser-3.11-py3-none-any.whl (51 kB)
 #11 28.43 Downloading pycryptodome-4.0.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.5 MB)
-#11 28.60    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 14.9 MB/s  0:00:00
+#11 28.60    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 2.5/2.5 MB 14.9 MB/s  0:00:00
 #11 28.62 Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
-#11 28.69    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.8/807.8 kB 12.1 MB/s  0:00:00
+#11 28.69    â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â” 807.8/807.8 kB 12.1 MB/s  0:00:00
 #11 28.72 Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
 #11 28.75 Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
 #11 29.29 Installing collected packages: passlib, flatbuffers, websockets, wcwidth, vine, uvloop, urllib3, tzlocal, tzdata, typing-extensions, truststore, tqdm, structlog, sniffio, six, shellingham, setuptools, rignore, regex, redis, pyyaml, python-ulid, python-multipart, python-dotenv, pypdf, PyJWT, pygments, pycryptodome, pycparser, py-rust-stemmers, protobuf, prometheus-client, portalocker, pillow, packaging, numpy, mmh3, mdurl, MarkupSafe, lxml, loguru, jiter, idna, hyperframe, httptools, hpack, hf-xet, h11, greenlet, fsspec, filelock, fastar, dnspython, detect-installer, click, charset_normalizer, chardet, certifi, billiard, bcrypt, asyncpg, annotated-types, annotated-doc, agent-detector, uvicorn, typing-inspection, sqlalchemy, sentry-sdk, requests, python-docx, python-dateutil, pydantic-core, prompt_toolkit, opentelemetry-proto, opentelemetry-api, onnxruntime, markdown-it-py, Mako, jinja2, httpcore2, httpcore, h2, grpcio, googleapis-common-protos, email-validator, click-plugins, click-didyoumean, cffi, anyio, amqp, watchfiles, tiktoken, starlette, rich, pydantic, opentelemetry-semantic-conventions, opentelemetry-exporter-otlp-proto-common, opentelemetry-exporter-http-transport, kombu, httpx2, httpx, grpcio-tools, cryptography, click-repl, argon2-cffi-bindings, alembic, typer, rich-toolkit, pydantic-settings, pydantic-extra-types, opentelemetry-sdk, openai, huggingface-hub, fastapi, celery, argon2-cffi, tokenizers, qdrant-client, opentelemetry-exporter-otlp-common, minio, fastapi-cloud-cli, fastapi-cli, opentelemetry-exporter-otlp-proto-http, fastembed
@@ -525,14 +525,14 @@ Just set COMPOSE_BAKE=true
 #31 2.189   Getting requirements to build wheel: finished with status 'done'
 #31 2.190   Preparing metadata (pyproject.toml): started
 #31 2.499   Preparing metadata (pyproject.toml): finished with status 'done'
-#31 2.502 Building wheels for collected packages: knowops-backend
-#31 2.502   Building wheel for knowops-backend (pyproject.toml): started
-#31 2.860   Building wheel for knowops-backend (pyproject.toml): finished with status 'done'
-#31 2.861   Created wheel for knowops-backend: filename=knowops_backend-0.1.0-py3-none-any.whl size=107455 sha256=d6d159fc1e98ac05e77036f4a760c04574251f60af8bd9bc2839e71e8e38b336
+#31 2.502 Building wheels for collected packages: Intellectus-backend
+#31 2.502   Building wheel for Intellectus-backend (pyproject.toml): started
+#31 2.860   Building wheel for Intellectus-backend (pyproject.toml): finished with status 'done'
+#31 2.861   Created wheel for Intellectus-backend: filename=Intellectus_backend-0.1.0-py3-none-any.whl size=107455 sha256=d6d159fc1e98ac05e77036f4a760c04574251f60af8bd9bc2839e71e8e38b336
 #31 2.861   Stored in directory: /tmp/pip-ephem-wheel-cache-9c_ejopx/wheels/7f/5c/67/61a4ca28ccbc7df61f55a044560f100aa81c66ef20585de495
-#31 2.863 Successfully built knowops-backend
-#31 2.872 Installing collected packages: knowops-backend
-#31 2.941 Successfully installed knowops-backend-0.1.0
+#31 2.863 Successfully built Intellectus-backend
+#31 2.872 Installing collected packages: Intellectus-backend
+#31 2.941 Successfully installed Intellectus-backend-0.1.0
 #31 DONE 3.0s
 
 #32 [backend runtime 1/7] WORKDIR /app
@@ -542,7 +542,7 @@ Just set COMPOSE_BAKE=true
 #33 DONE 2.9s
 
 #34 [backend runtime 3/7] RUN python -m pip uninstall --yes pip
-#34 0.373 WARNING: The directory '/home/knowops/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+#34 0.373 WARNING: The directory '/home/Intellectus/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
 #34 0.446 Found existing installation: pip 26.2.1
 #34 0.472 Uninstalling pip-26.2.1:
 #34 0.595   Successfully uninstalled pip-26.2.1
@@ -567,9 +567,9 @@ Just set COMPOSE_BAKE=true
 #39 exporting config sha256:48178a37475c276b43a624b39c2d0863bdbd5f348fa0697f204839782483dd26 done
 #39 exporting attestation manifest sha256:90d1a71aa61ca35078fcdaffe7be5aa81db0cb63d0958c15d78fbe72ae1f5e54 done
 #39 exporting manifest list sha256:e7fcdb5bb241e40e6a5a82b8352aa56c2881aa3eaec09ba739cbeaf03c12339f done
-#39 naming to docker.io/library/knowops-backend:local done
-#39 unpacking to docker.io/library/knowops-backend:local
-#39 unpacking to docker.io/library/knowops-backend:local 1.8s done
+#39 naming to docker.io/library/Intellectus-backend:local done
+#39 unpacking to docker.io/library/Intellectus-backend:local
+#39 unpacking to docker.io/library/Intellectus-backend:local 1.8s done
 #39 DONE 9.5s
 
 #40 [backend] resolving provenance for metadata file
@@ -603,8 +603,8 @@ Just set COMPOSE_BAKE=true
 #47 exporting config sha256:725317957ba7f8c211394aad529e739843fe586734888ec7b458d60aa8c9504b done
 #47 exporting attestation manifest sha256:517757dafd19c27b06082b464adf77a37b99afbabc0ba661564ab348aaa2c985 done
 #47 exporting manifest list sha256:70e5e28b6b39cc33babe3a8866c932b12cefead19058a38992864792158c7bd3 done
-#47 naming to docker.io/library/knowops-frontend:local done
-#47 unpacking to docker.io/library/knowops-frontend:local done
+#47 naming to docker.io/library/Intellectus-frontend:local done
+#47 unpacking to docker.io/library/Intellectus-frontend:local done
 #47 DONE 0.0s
 
 #48 [frontend] resolving provenance for metadata file

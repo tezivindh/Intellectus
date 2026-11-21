@@ -1,5 +1,5 @@
-"""
-Identity module — Pydantic schemas.
+﻿"""
+Identity module â€” Pydantic schemas.
 
 Request/response models for authentication and user management.
 """

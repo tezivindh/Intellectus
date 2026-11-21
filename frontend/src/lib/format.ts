@@ -1,4 +1,4 @@
-/** Formatting helpers shared across screens. */
+﻿/** Formatting helpers shared across screens. */
 
 const dateFmt = new Intl.DateTimeFormat(undefined, { day: "numeric", month: "short", year: "numeric" });
 const dateTimeFmt = new Intl.DateTimeFormat(undefined, {
@@ -16,18 +16,18 @@ function parse(iso: string | null | undefined): Date | null {
 
 export function formatDate(iso: string | null | undefined): string {
   const d = parse(iso);
-  return d ? dateFmt.format(d) : "—";
+  return d ? dateFmt.format(d) : "â€”";
 }
 
 export function formatDateTime(iso: string | null | undefined): string {
   const d = parse(iso);
-  return d ? dateTimeFmt.format(d) : "—";
+  return d ? dateTimeFmt.format(d) : "â€”";
 }
 
 /** "3 min ago", "yesterday", falling back to a date after a week. */
 export function formatRelative(iso: string | null | undefined, now = Date.now()): string {
   const d = parse(iso);
-  if (!d) return "—";
+  if (!d) return "â€”";
   const seconds = Math.round((now - d.getTime()) / 1000);
   if (seconds < 45) return "just now";
   const minutes = Math.round(seconds / 60);
@@ -41,7 +41,7 @@ export function formatRelative(iso: string | null | undefined, now = Date.now())
 }
 
 export function formatBytes(bytes: number | null | undefined): string {
-  if (bytes == null || Number.isNaN(bytes)) return "—";
+  if (bytes == null || Number.isNaN(bytes)) return "â€”";
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 ** 2) return `${(bytes / 1024).toFixed(1)} KB`;
   if (bytes < 1024 ** 3) return `${(bytes / 1024 ** 2).toFixed(1)} MB`;
@@ -63,7 +63,7 @@ export function slugify(value: string): string {
   return value
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[Ì€-Í¯]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 100);

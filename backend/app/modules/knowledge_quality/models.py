@@ -1,5 +1,5 @@
-"""
-Knowledge quality module — SQLAlchemy models.
+﻿"""
+Knowledge quality module â€” SQLAlchemy models.
 
 Findings for conflicts, gaps, stale knowledge, and unanswered questions.
 Each finding has evidence, severity, status, and assignment workflows.

@@ -1,4 +1,4 @@
-# Deployment and teardown
+﻿# Deployment and teardown
 
 ## Local Docker
 
@@ -15,7 +15,7 @@ Open http://localhost:3000. Port 5173 is retained as a compatibility alias. API 
 
 For development outside Docker, install `backend/requirements-dev.txt`, start backing services with Compose, then run Uvicorn, Celery, the reconciler and `npm run dev` in separate terminals. The Next development server proxies `/api` to localhost:8000.
 
-To rerun tests in Docker (uses only `knowops_test`):
+To rerun tests in Docker (uses only `Intellectus_test`):
 
 ```bash
 docker compose --profile test run --rm test
@@ -30,16 +30,16 @@ Requirements: Docker, Minikube, kubectl, Helm 3, Python 3, and the verified loca
 ```bash
 bash scripts/verify.sh
 bash scripts/deploy-local.sh
-kubectl get pods,svc,ingress -n knowops
-helm list -n knowops
-curl -H 'Host: knowops.local' "http://$(minikube ip):30080/"
+kubectl get pods,svc,ingress -n Intellectus
+helm list -n Intellectus
+curl -H 'Host: Intellectus.local' "http://$(minikube ip):30080/"
 ```
 
-On Linux, map `knowops.local` to `minikube ip` in your hosts file and open `http://knowops.local:30080`. Alternatively, forward the ingress controller locally:
+On Linux, map `Intellectus.local` to `minikube ip` in your hosts file and open `http://Intellectus.local:30080`. Alternatively, forward the ingress controller locally:
 
 ```bash
 kubectl port-forward -n traefik svc/traefik 8080:80
-# Open http://localhost:8080 with Host: knowops.local, or use the hosts mapping.
+# Open http://localhost:8080 with Host: Intellectus.local, or use the hosts mapping.
 ```
 
 Namespaces, secrets and Helm releases are separate bootstrap steps. `scripts/bootstrap-secrets.py` sends random secrets directly to kubectl, copies only the optional LLM key from `.env`, and preserves existing secrets. It prints no secret values. Never commit a rendered Secret or real kubeconfig.
@@ -60,7 +60,7 @@ terraform -chdir=terraform init
 terraform -chdir=terraform validate
 terraform -chdir=terraform plan -out=capstone.tfplan
 terraform -chdir=terraform apply capstone.tfplan
-aws eks update-kubeconfig --region ap-south-1 --name knowops
+aws eks update-kubeconfig --region ap-south-1 --name Intellectus
 kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/deployer-rbac.yaml
 kubectl apply -f k8s/storageclass-eks.yaml
@@ -87,7 +87,7 @@ Point a hostname you control at that LoadBalancer, set `CAPSTONE_HOST` according
 ```bash
 kubectl port-forward -n monitoring svc/monitoring-grafana 3002:80
 kubectl port-forward -n monitoring svc/monitoring-kube-prometheus-prometheus 9090:9090
-kubectl port-forward -n knowops svc/knowops-backend 8001:8000
+kubectl port-forward -n Intellectus svc/Intellectus-backend 8001:8000
 curl http://localhost:8001/metrics
 python3 scripts/generate-traffic.py --url http://localhost:8001/health
 ```
@@ -98,9 +98,9 @@ Grafana: http://localhost:3002, user `admin`. Retrieve the generated password pr
 kubectl get secret grafana-admin -n monitoring -o jsonpath='{.data.admin-password}' | base64 --decode
 ```
 
-Do not capture that command's output in submission screenshots. Dashboard: `/d/knowops-overview/knowops-application`. Prometheus targets: http://localhost:9090/targets. Query `sum(knowops_http_requests_total{namespace="knowops"})`. Both backend replicas should be UP through their ServiceMonitor endpoints. The ingress intentionally does not publish `/metrics`.
+Do not capture that command's output in submission screenshots. Dashboard: `/d/Intellectus-overview/Intellectus-application`. Prometheus targets: http://localhost:9090/targets. Query `sum(Intellectus_http_requests_total{namespace="Intellectus"})`. Both backend replicas should be UP through their ServiceMonitor endpoints. The ingress intentionally does not publish `/metrics`.
 
-## AWS teardown — after the evaluation
+## AWS teardown â€” after the evaluation
 
 Back up any data you need first. Helm uninstall removes the application's PVCs and can destroy uploaded documents and database contents.
 
@@ -108,7 +108,7 @@ Back up any data you need first. Helm uninstall removes the application's PVCs a
 2. Check cloud-managed Services and PVCs are gone, then destroy Terraform-managed infrastructure.
 
 ```bash
-helm uninstall knowops -n knowops
+helm uninstall Intellectus -n Intellectus
 helm uninstall monitoring -n monitoring
 helm uninstall traefik -n traefik
 kubectl get svc,pvc -A

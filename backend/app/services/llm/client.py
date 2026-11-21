@@ -1,5 +1,5 @@
-"""
-LLM Service — OpenAI-compatible client for Groq.
+﻿"""
+LLM Service â€” OpenAI-compatible client for Groq.
 
 Implements the fallback strategy from the technical spec:
 - Primary model (gpt-oss-120b) with retry + exponential backoff
@@ -80,7 +80,7 @@ class LLMService:
         if result is not None:
             return result
 
-        # Primary failed — try fallback
+        # Primary failed â€” try fallback
         logger.warning(
             "Primary LLM failed, switching to fallback",
             primary_model=self.settings.llm_primary_model,
@@ -210,7 +210,7 @@ class LLMService:
 
     @staticmethod
     def _backoff_delay(attempt: int, base: float, maximum: float) -> float:
-        """Exponential backoff with ±25% jitter."""
+        """Exponential backoff with Â±25% jitter."""
         delay = min(base * (2**attempt), maximum)
         jitter = delay * 0.25 * (2 * random.random() - 1)
         return float(min(maximum, max(0.0, delay + jitter)))
@@ -291,7 +291,7 @@ def llm_app_error(exc: Exception) -> AppError:
         )
     if isinstance(exc, LLMRequestError) and exc.status_code in (401, 403):
         return AppError(
-            "The AI engine rejected KnowOps' credentials. An administrator needs to "
+            "The AI engine rejected Intellectus' credentials. An administrator needs to "
             "check the LLM_API_KEY setting.",
             "LLM_NOT_CONFIGURED",
             502,

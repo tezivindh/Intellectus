@@ -1,11 +1,11 @@
-const { test } = require("node:test");
+﻿const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
 const ts = require("typescript");
 
 test("two tabs rotate a shared refresh token only once", async () => {
-  const values = new Map([["knowops.access", "old-access"], ["knowops.refresh", "old-refresh"]]);
+  const values = new Map([["Intellectus.access", "old-access"], ["Intellectus.refresh", "old-refresh"]]);
   const storage = {
     getItem: (key) => values.get(key) ?? null,
     setItem: (key, value) => values.set(key, value),
@@ -44,5 +44,5 @@ test("two tabs rotate a shared refresh token only once", async () => {
   const users = await Promise.all([first.me(), second.me()]);
   assert.deepEqual(users.map((user) => user.id), ["user", "user"]);
   assert.equal(rotations, 1);
-  assert.equal(values.get("knowops.refresh"), "new-refresh");
+  assert.equal(values.get("Intellectus.refresh"), "new-refresh");
 });

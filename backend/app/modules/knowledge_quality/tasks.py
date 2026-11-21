@@ -1,5 +1,5 @@
-"""
-Knowledge quality — Celery tasks.
+﻿"""
+Knowledge quality â€” Celery tasks.
 """
 
 from __future__ import annotations
@@ -43,6 +43,6 @@ def enqueue_scan(org_id: str) -> bool:
     try:
         scan_organization.delay(org_id)
         return True
-    except Exception as exc:  # noqa: BLE001 — broker may be unavailable
+    except Exception as exc:  # noqa: BLE001 â€” broker may be unavailable
         logger.warning("Could not enqueue knowledge scan", org_id=org_id, error=str(exc))
         return False

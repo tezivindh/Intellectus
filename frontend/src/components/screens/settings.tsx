@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
@@ -315,7 +315,7 @@ function MembersTab() {
       {manager && invitations.data && invitations.data.length > 0 && (
         <section className="pt-6">
           <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-[0.06em] text-muted">
-            Invited · waiting for acceptance
+            Invited Â· waiting for acceptance
           </h2>
           <ul className="divide-y divide-rule border-y border-rule">
             {invitations.data.map((inv) => (
@@ -360,9 +360,9 @@ function MembersTab() {
       )}
       <section className="pt-6">
         <dl className="mb-4 grid gap-x-6 gap-y-1 text-[12.5px] text-muted sm:grid-cols-2">
-          <div><span className="font-medium text-ink-2">Owner / Admin</span> — manage members, groups, every document, and run scans.</div>
-          <div><span className="font-medium text-ink-2">Member</span> — upload documents, ask questions, create tasks.</div>
-          <div><span className="font-medium text-ink-2">Viewer</span> — read and ask only.</div>
+          <div><span className="font-medium text-ink-2">Owner / Admin</span> â€” manage members, groups, every document, and run scans.</div>
+          <div><span className="font-medium text-ink-2">Member</span> â€” upload documents, ask questions, create tasks.</div>
+          <div><span className="font-medium text-ink-2">Viewer</span> â€” read and ask only.</div>
         </dl>
         <ul className="divide-y divide-rule border-y border-rule">
           {members.data.map((m: Member) => {
@@ -374,7 +374,7 @@ function MembersTab() {
                     {m.user_name} {self && <span className="font-normal text-muted">(you)</span>}
                   </p>
                   <p className="truncate text-[12.5px] text-muted">
-                    {m.user_email} · joined {formatDate(m.created_at)}
+                    {m.user_email} Â· joined {formatDate(m.created_at)}
                   </p>
                 </div>
                 {owner && !self ? (
@@ -570,7 +570,7 @@ function GroupRow({
               {manager && (
                 <div className="flex flex-wrap items-center gap-2">
                   <Select aria-label="Add member to group" value={adding} onChange={(e) => setAdding(e.target.value)} className="h-7 w-60 text-[13px]">
-                    <option value="">Add a member…</option>
+                    <option value="">Add a memberâ€¦</option>
                     {members
                       .filter((m) => !inGroup.has(m.user_id))
                       .map((m) => (
@@ -598,7 +598,7 @@ function GroupRow({
                     variant="danger"
                     loading={busy === "delete"}
                     onClick={() => {
-                      if (window.confirm(`Delete the group “${g.name}”? Documents shared only with it will no longer be shared with its members.`))
+                      if (window.confirm(`Delete the group â€œ${g.name}â€? Documents shared only with it will no longer be shared with its members.`))
                         void mutate("delete", () => api.deleteGroup(orgId, g.id));
                     }}
                   >

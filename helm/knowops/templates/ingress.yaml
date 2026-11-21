@@ -1,10 +1,10 @@
-{{- if .Values.ingress.enabled }}
+﻿{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "knowops.name" . }}
+  name: {{ include "Intellectus.name" . }}
   labels:
-    {{- include "knowops.labels" . | nindent 4 }}
+    {{- include "Intellectus.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations: {{ toYaml . | nindent 4 }}
   {{- end }}
@@ -21,12 +21,12 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "knowops.name" . }}-backend
+                name: {{ include "Intellectus.name" . }}-backend
                 port: { number: 8000 }
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "knowops.name" . }}-frontend
+                name: {{ include "Intellectus.name" . }}-frontend
                 port: { number: 80 }
 {{- end }}

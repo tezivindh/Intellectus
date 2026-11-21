@@ -1,4 +1,4 @@
-"""HTTP metrics with bounded route labels and a registry per app instance."""
+﻿"""HTTP metrics with bounded route labels and a registry per app instance."""
 
 from time import perf_counter
 
@@ -10,11 +10,11 @@ class MetricsMiddleware:
     def __init__(self, app: ASGIApp, registry: CollectorRegistry) -> None:
         self.app = app
         self.requests = Counter(
-            "knowops_http_requests_total", "HTTP requests", ["method", "handler", "status"],
+            "Intellectus_http_requests_total", "HTTP requests", ["method", "handler", "status"],
             registry=registry,
         )
         self.duration = Histogram(
-            "knowops_http_request_duration_seconds", "HTTP request duration",
+            "Intellectus_http_request_duration_seconds", "HTTP request duration",
             ["method", "handler"], registry=registry,
             buckets=(0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10, 30, 60),
         )

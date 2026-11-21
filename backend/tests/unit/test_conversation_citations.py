@@ -1,4 +1,4 @@
-"""Unit tests for citation-marker parsing and renumbering (conversations)."""
+﻿"""Unit tests for citation-marker parsing and renumbering (conversations)."""
 
 from app.modules.conversations.service import (
     _referenced_indexes,
@@ -13,7 +13,7 @@ async def test_ascii_brackets_are_parsed_in_order():
 
 async def test_fullwidth_brackets_are_parsed():
     # Models (e.g. gpt-oss) sometimes emit CJK full-width brackets.
-    assert _referenced_indexes("据【2】和【1】。", 3) == [2, 1]
+    assert _referenced_indexes("æ®ã€2ã€‘å’Œã€1ã€‘ã€‚", 3) == [2, 1]
 
 
 async def test_grouped_markers_are_parsed():
@@ -43,7 +43,7 @@ async def test_renumbering_matches_stored_citation_order():
 
 
 async def test_fullwidth_markers_are_normalised():
-    assert _renumber_citations("据【2】。", {2: 1}) == "据[1]。"
+    assert _renumber_citations("æ®ã€2ã€‘ã€‚", {2: 1}) == "æ®[1]ã€‚"
 
 
 async def test_strip_citations_for_history():

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Alembic environment configuration.
 
 Loads all SQLAlchemy models and uses async engine.
@@ -31,7 +31,7 @@ if db_url:
 
 
 def run_migrations_offline() -> None:
-    """Run migrations in 'offline' mode — generates SQL without connecting."""
+    """Run migrations in 'offline' mode â€” generates SQL without connecting."""
     url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,

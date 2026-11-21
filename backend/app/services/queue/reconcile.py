@@ -1,4 +1,4 @@
-"""Recover durable uploads whose broker publication was interrupted.
+﻿"""Recover durable uploads whose broker publication was interrupted.
 
 Run as a separate process: python -m app.services.queue.reconcile.
 Duplicate deliveries are safe: ingestion locks the document and skips ready versions.

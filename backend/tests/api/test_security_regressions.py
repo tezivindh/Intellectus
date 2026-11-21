@@ -1,4 +1,4 @@
-"""Authorization regressions use real PostgreSQL with transactional test organizations."""
+﻿"""Authorization regressions use real PostgreSQL with transactional test organizations."""
 
 import pytest
 from sqlalchemy import select

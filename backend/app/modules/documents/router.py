@@ -1,5 +1,5 @@
-"""
-Documents module — API router.
+﻿"""
+Documents module â€” API router.
 
 Document CRUD, file upload, version management, and permission operations.
 All endpoints require authentication and organization membership.
@@ -183,7 +183,7 @@ async def upload_document(
     try:
         clean_title = _TITLE.validate_python(raw_title or filename)
     except ValidationError:
-        raise AppError("Title must be 1–500 characters", "INVALID_TITLE", 422) from None
+        raise AppError("Title must be 1â€“500 characters", "INVALID_TITLE", 422) from None
     parsed_tags = _parse_tags(tags)
     file_data = await _read_upload(file)
 

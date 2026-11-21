@@ -1,6 +1,6 @@
-# KnowOps — company knowledge you can check
+﻿# Intellectus â€” company knowledge you can check
 
-KnowOps lets teams upload internal documents and ask questions with citations to the source passages. Organizations, roles, groups and document permissions apply to both the library and search. The platform also finds conflicting/stale knowledge, keeps document versions, and turns answers into tasks or email drafts that require human approval.
+Intellectus lets teams upload internal documents and ask questions with citations to the source passages. Organizations, roles, groups and document permissions apply to both the library and search. The platform also finds conflicting/stale knowledge, keeps document versions, and turns answers into tasks or email drafts that require human approval.
 
 The application is built with **Next.js/React, FastAPI, PostgreSQL and Alembic**. Celery/Redis process uploads, MinIO stores originals, Qdrant indexes passages, local fastembed models produce vectors, and a Groq-compatible LLM generates cited answers. Email drafts are stored; no email is sent automatically.
 
@@ -58,7 +58,7 @@ Restricted documents stay restricted when their last grant is removed. Prior ver
 ## Tests and quality gates
 
 ```bash
-# Containerized test environment: uses knowops_test, never the application database.
+# Containerized test environment: uses Intellectus_test, never the application database.
 docker compose --profile test run --rm test
 
 # Local tooling / CI equivalent:
@@ -85,13 +85,13 @@ The [submission guide](docs/CAPSTONE.md) maps all ten grading modules to files a
 
 - `.github/workflows/action.yml`: tests and quality checks **before image builds**, Trivy on backend/Nginx/Next images, GHCR commit-SHA publication, and opt-in EKS deployment with GitHub OIDC.
 - `terraform/`: VPC, two public subnets, EKS worker group, EBS CSI, and scoped deployment identity. Credentials, state, plans and real variable files are excluded from Git.
-- `k8s/` and `helm/knowops/`: bootstrap manifests and a complete chart with two backend/frontend replicas, internal Services, migration Job, data persistence and Ingress routing.
+- `k8s/` and `helm/Intellectus/`: bootstrap manifests and a complete chart with two backend/frontend replicas, internal Services, migration Job, data persistence and Ingress routing.
 - `monitoring/`: Prometheus/Grafana Helm values, ServiceMonitor support and a provisioned application dashboard.
 - `scripts/verify.sh`, `scripts/scan-images.sh`, `scripts/deploy-local.sh`: reproducible validation, scanning and local deployment.
 - `evidence/`: executed check output and screenshots, with external submission gaps explicitly identified.
 
 Real AWS resources cost money. Run the documented teardown after evaluation and keep the successful destroy output. A local mock Terraform plan does not replace real AWS plan/apply/destroy evidence.
 
-Repository: https://github.com/tezivindh/knowops
+Repository: https://github.com/tezivindh/Intellectus
 
-Proprietary — all rights reserved.
+Proprietary â€” all rights reserved.

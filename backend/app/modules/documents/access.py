@@ -1,4 +1,4 @@
-"""Current access checks for persisted evidence, including historical versions."""
+﻿"""Current access checks for persisted evidence, including historical versions."""
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession

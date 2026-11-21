@@ -1,8 +1,8 @@
-"""
-API tests — documents, chat, knowledge findings, actions.
+﻿"""
+API tests â€” documents, chat, knowledge findings, actions.
 
 External services (object storage, the LLM, vector search) are replaced with
-in-memory fakes; everything else — routing, permissions, persistence — is real.
+in-memory fakes; everything else â€” routing, permissions, persistence â€” is real.
 """
 
 import pytest
@@ -578,7 +578,7 @@ async def test_group_access_and_deleting_the_group_keeps_document_restricted(
     assert await _visible(client, org.id, member_headers) == ["open", "salary"]
     assert await _visible(client, org.id, other_headers) == ["open"]
 
-    # Deleting the group removes its grant — but the document stays restricted.
+    # Deleting the group removes its grant â€” but the document stays restricted.
     deleted = await client.delete(f"{base}/groups/{group['id']}", headers=headers)
     assert deleted.status_code == 204
     assert await _visible(client, org.id, member_headers) == ["open"]

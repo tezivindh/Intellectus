@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
@@ -83,7 +83,7 @@ export function ActionsScreen() {
 
       {proposals.length > 0 && (
         <section className="mb-10">
-          <SectionTitle>Waiting for review · {proposals.length}</SectionTitle>
+          <SectionTitle>Waiting for review Â· {proposals.length}</SectionTitle>
           <div className="space-y-4">
             {proposals.map((run) => (
               <Proposal key={run.id} run={run} orgId={orgId} onChanged={afterRunChange} />
@@ -155,8 +155,8 @@ export function ActionsScreen() {
                           {t.title}
                         </button>
                         <span className="text-[12px] text-muted">
-                          {t.checklist.length > 0 && `${done}/${t.checklist.length} steps · `}
-                          {t.source_references.length > 0 && `${t.source_references.length} source${t.source_references.length === 1 ? "" : "s"} · `}
+                          {t.checklist.length > 0 && `${done}/${t.checklist.length} steps Â· `}
+                          {t.source_references.length > 0 && `${t.source_references.length} source${t.source_references.length === 1 ? "" : "s"} Â· `}
                           updated {formatRelative(t.updated_at)}
                         </span>
                       </td>
@@ -164,9 +164,9 @@ export function ActionsScreen() {
                       <td className="hidden px-3 py-2.5 sm:table-cell">
                         <Badge tone={PRIORITY_TONE[t.priority]}>{t.priority[0].toUpperCase() + t.priority.slice(1)}</Badge>
                       </td>
-                      <td className="hidden truncate px-3 py-2.5 text-ink-2 md:table-cell">{t.assignee_name ?? <span className="text-muted">—</span>}</td>
+                      <td className="hidden truncate px-3 py-2.5 text-ink-2 md:table-cell">{t.assignee_name ?? <span className="text-muted">â€”</span>}</td>
                       <td className={`whitespace-nowrap py-2.5 pl-3 pr-1 text-right text-[12.5px] ${overdue ? "text-danger" : "text-muted"}`}>
-                        {t.due_date ? formatDate(t.due_date + "T00:00:00") : "—"}
+                        {t.due_date ? formatDate(t.due_date + "T00:00:00") : "â€”"}
                       </td>
                     </tr>
                   );
@@ -185,7 +185,7 @@ export function ActionsScreen() {
               <ApprovedEmail key={run.id} run={run} />
             ))}
           </ul>
-          <p className="mt-2 text-[12.5px] text-muted">KnowOps doesn&apos;t send email. Copy a draft into your mail client.</p>
+          <p className="mt-2 text-[12.5px] text-muted">Intellectus doesn&apos;t send email. Copy a draft into your mail client.</p>
         </section>
       )}
 
@@ -220,7 +220,7 @@ function checklistToText(items: ChecklistItem[]) {
 function textToChecklist(text: string, previous: ChecklistItem[] = []): ChecklistItem[] {
   return text
     .split("\n")
-    .map((line) => line.replace(/^\s*[-*•]\s*/, "").trim())
+    .map((line) => line.replace(/^\s*[-*â€¢]\s*/, "").trim())
     .filter(Boolean)
     .map((t) => ({ text: t.slice(0, 500), done: previous.find((p) => p.text === t)?.done ?? false }));
 }
@@ -347,7 +347,7 @@ function Sources({ refs }: { refs: SourceReference[] }) {
             ) : (
               <span className="font-medium">{r.document_title ?? "Document"}</span>
             )}
-            {r.page_number ? <span className="text-muted"> · p. {r.page_number}</span> : null}
+            {r.page_number ? <span className="text-muted"> Â· p. {r.page_number}</span> : null}
             {r.quoted_text && <p className="mt-0.5 line-clamp-3 text-muted">{passageText(r.quoted_text)}</p>}
           </li>
         ))}
@@ -589,7 +589,7 @@ function TaskDialog({
         )}
         {task && (
           <p className="text-[12px] text-muted">
-            Created by {task.created_by_name ?? "—"} · {formatDate(task.created_at)}
+            Created by {task.created_by_name ?? "â€”"} Â· {formatDate(task.created_at)}
           </p>
         )}
       </form>

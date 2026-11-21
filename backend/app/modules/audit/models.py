@@ -1,5 +1,5 @@
-"""
-Audit module — SQLAlchemy models.
+﻿"""
+Audit module â€” SQLAlchemy models.
 
 Immutable audit trail for security-sensitive operations.
 Separate from user-editable conversation history.

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Shared dependencies for FastAPI dependency injection.
 """
 

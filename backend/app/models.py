@@ -1,10 +1,10 @@
-"""
+﻿"""
 Central ORM model registry.
 
 Importing this module registers every mapped class on ``Base.metadata``.
 SQLAlchemy resolves foreign keys across *all* tables when it configures
-mappers, so any entrypoint that touches the database outside the web app —
-most importantly the Celery worker — must import this first or it will fail
+mappers, so any entrypoint that touches the database outside the web app â€”
+most importantly the Celery worker â€” must import this first or it will fail
 with ``NoReferencedTableError`` (e.g. ``documents.organization_id`` cannot
 find the ``organizations`` table).
 

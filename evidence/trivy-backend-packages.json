@@ -1,4 +1,4 @@
-{
+﻿{
   "SchemaVersion": 2,
   "Trivy": {
     "Version": "0.76.0"
@@ -6,7 +6,7 @@
   "ReportID": "01a145b8-df7d-7b3a-9f56-c3587879b406",
   "CreatedAt": "2026-10-16T17:18:26.173738523Z",
   "ArtifactID": "sha256:8a079630c8b3d35061724b7b50616974a4883d1c668dad2d5fb64918f24e8329",
-  "ArtifactName": "knowops-backend:local",
+  "ArtifactName": "Intellectus-backend:local",
   "ArtifactType": "container_image",
   "Metadata": {
     "Size": 561381376,
@@ -36,12 +36,12 @@
       "sha256:6755039ea6810a1d639c08300f95a1aa72c6843d6660e683aa7743ecdb838891"
     ],
     "RepoTags": [
-      "knowops-backend:local"
+      "Intellectus-backend:local"
     ],
     "RepoDigests": [
-      "knowops-backend@sha256:c0d78c1a79bca5a3b48f96a60c0003ebccda964768f4d13f6a6b793e5de5f387"
+      "Intellectus-backend@sha256:c0d78c1a79bca5a3b48f96a60c0003ebccda964768f4d13f6a6b793e5de5f387"
     ],
-    "Reference": "knowops-backend:local",
+    "Reference": "Intellectus-backend:local",
     "ImageConfig": {
       "architecture": "amd64",
       "author": "github.com/chainguard-dev/apko",
@@ -110,12 +110,12 @@
         },
         {
           "created": "2026-10-16T17:15:29Z",
-          "created_by": "RUN /bin/sh -c apk add --no-cache python-3.12 libgomp libstdc++     \u0026\u0026 mkdir -p /home/knowops/.cache/fastembed     \u0026\u0026 chown -R 10001:10001 /home/knowops # buildkit",
+          "created_by": "RUN /bin/sh -c apk add --no-cache python-3.12 libgomp libstdc++     \u0026\u0026 mkdir -p /home/Intellectus/.cache/fastembed     \u0026\u0026 chown -R 10001:10001 /home/Intellectus # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
           "created": "2026-10-16T17:15:29Z",
-          "created_by": "ENV PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin HOME=/home/knowops PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 EMBEDDING_CACHE_DIR=/home/knowops/.cache/fastembed",
+          "created_by": "ENV PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin HOME=/home/Intellectus PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 EMBEDDING_CACHE_DIR=/home/Intellectus/.cache/fastembed",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
@@ -204,13 +204,13 @@
         "Env": [
           "PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin",
           "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt",
-          "HOME=/home/knowops",
+          "HOME=/home/Intellectus",
           "PYTHONDONTWRITEBYTECODE=1",
           "PYTHONUNBUFFERED=1",
-          "EMBEDDING_CACHE_DIR=/home/knowops/.cache/fastembed"
+          "EMBEDDING_CACHE_DIR=/home/Intellectus/.cache/fastembed"
         ],
         "Labels": {
-          "com.docker.compose.project": "knowops",
+          "com.docker.compose.project": "Intellectus",
           "com.docker.compose.service": "backend",
           "com.docker.compose.version": "2.33.1",
           "dev.chainguard.image.title": "wolfi-base",
@@ -325,7 +325,7 @@
   },
   "Results": [
     {
-      "Target": "knowops-backend:local (wolfi 20230201)",
+      "Target": "Intellectus-backend:local (wolfi 20230201)",
       "Class": "os-pkgs",
       "Type": "wolfi",
       "Packages": [
@@ -4357,9 +4357,9 @@
           "AnalyzedBy": "python-pkg"
         },
         {
-          "Name": "knowops-backend",
+          "Name": "Intellectus-backend",
           "Identifier": {
-            "PURL": "pkg:pypi/knowops-backend@0.1.0",
+            "PURL": "pkg:pypi/Intellectus-backend@0.1.0",
             "UID": "dd676fa13bf271de"
           },
           "Version": "0.1.0",
@@ -4367,7 +4367,7 @@
             "Digest": "sha256:554a93ba50e86b9ab75a60547f93dcb9db9f341fb5f37cc2711bc7294a1e797d",
             "DiffID": "sha256:e4ef3856f21d4a7791ed9251e85a59a706096c04651e7aeb454e782bce72cfd1"
           },
-          "FilePath": "opt/venv/lib/python3.12/site-packages/knowops_backend-0.1.0.dist-info/METADATA",
+          "FilePath": "opt/venv/lib/python3.12/site-packages/Intellectus_backend-0.1.0.dist-info/METADATA",
           "AnalyzedBy": "python-pkg"
         },
         {

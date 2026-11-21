@@ -1,5 +1,5 @@
-"""
-Storage Service — MinIO S3-compatible object storage client.
+﻿"""
+Storage Service â€” MinIO S3-compatible object storage client.
 
 Handles document upload, download, deletion, and presigned URL generation.
 Ensures the bucket exists on initialization.

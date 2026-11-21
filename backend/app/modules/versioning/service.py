@@ -1,5 +1,5 @@
-"""
-Versioning — compare two versions of a document.
+﻿"""
+Versioning â€” compare two versions of a document.
 
 Both files are re-extracted from object storage with the same extractor used
 for ingestion, then diffed line by line. An optional LLM summary describes the
@@ -127,7 +127,7 @@ class VersioningService:
         base_id: str | None,
         target_id: str | None,
     ) -> Comparison:
-        """Compare ``base`` → ``target``.
+        """Compare ``base`` â†’ ``target``.
 
         Defaults: target is the newest version, base is the one before it.
         """

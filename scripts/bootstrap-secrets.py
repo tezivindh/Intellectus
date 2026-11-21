@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Create cluster secrets without writing or printing credential values."""
 import argparse
 import json
@@ -9,8 +9,8 @@ from pathlib import Path
 from urllib.parse import quote
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--namespace", default="knowops")
-parser.add_argument("--release", default="knowops")
+parser.add_argument("--namespace", default="Intellectus")
+parser.add_argument("--release", default="Intellectus")
 args = parser.parse_args()
 
 
@@ -40,8 +40,8 @@ create(args.namespace, f"{args.release}-secrets", {
     "SECRET_KEY": secrets.token_urlsafe(48),
     "JWT_SECRET_KEY": secrets.token_urlsafe(48),
     "POSTGRES_PASSWORD": password,
-    "DATABASE_URL": f"postgresql+asyncpg://knowops:{quote(password, safe='')}@{args.release}-postgres:5432/knowops",
-    "MINIO_ACCESS_KEY": "knowops",
+    "DATABASE_URL": f"postgresql+asyncpg://Intellectus:{quote(password, safe='')}@{args.release}-postgres:5432/Intellectus",
+    "MINIO_ACCESS_KEY": "Intellectus",
     "MINIO_SECRET_KEY": secrets.token_urlsafe(48),
     "LLM_API_KEY": llm_key,
 })

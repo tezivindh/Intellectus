@@ -1,4 +1,4 @@
-"""Keep application pods out of service until the release schema is ready."""
+﻿"""Keep application pods out of service until the release schema is ready."""
 
 import asyncio
 

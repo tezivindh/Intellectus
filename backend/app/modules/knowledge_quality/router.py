@@ -1,5 +1,5 @@
-"""
-Knowledge quality module — API router.
+﻿"""
+Knowledge quality module â€” API router.
 """
 
 import json

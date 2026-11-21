@@ -1,6 +1,6 @@
-# DevOps capstone submission guide
+﻿# DevOps capstone submission guide
 
-Repository: https://github.com/tezivindh/knowops
+Repository: https://github.com/tezivindh/Intellectus
 
 This guide maps the implementation to the rubric. Evidence must be from an executed check; a mock Terraform plan is not evidence of AWS provisioning.
 
@@ -13,22 +13,22 @@ This guide maps the implementation to the rubric. Evidence must be from an execu
 | M5 | `.github/workflows/action.yml`: push/main, tests before builds, frontend build, three image variants, GHCR SHA tags, gated EKS deployment | A green GitHub Actions URL and GHCR screenshot require an actual push/run |
 | M6 | Trivy scans backend, Nginx and Next images; fails on HIGH/CRITICAL; no ignored CVEs | `evidence/trivy-*.txt`, `docs/SECURITY.md`; also capture CI scan output |
 | M7 | `terraform/`: VPC, two public subnets, EKS/node group, EBS CSI, OIDC deployment identity | Init/validate/mock plan are local evidence only; real AWS plan/apply/destroy still require AWS credentials |
-| M8 | `k8s/`, `helm/knowops/`; 2 backend and 2 frontend replicas, ClusterIP, Ingress | Local Minikube deployment evidence; repeat on EKS for AWS demonstration |
+| M8 | `k8s/`, `helm/Intellectus/`; 2 backend and 2 frontend replicas, ClusterIP, Ingress | Local Minikube deployment evidence; repeat on EKS for AWS demonstration |
 | M9 | `/metrics`, ServiceMonitor, kube-prometheus-stack, authenticated Grafana, provisioned dashboard | Metrics/targets/dashboard captures in `evidence/` |
-| M10 | Root README, this guide, operational runbook and presentation steps | Live or recorded commit → pipeline → rollout demonstration remains a presentation activity |
+| M10 | Root README, this guide, operational runbook and presentation steps | Live or recorded commit â†’ pipeline â†’ rollout demonstration remains a presentation activity |
 
 ## Required GitHub configuration
 
 1. Authenticate Git and push `main`. Repository Actions builds/scans on every push. Publishing uses the scoped `GITHUB_TOKEN`; do not add a registry password to the repository.
 2. Make the repository public or grant instructor access. GHCR packages may initially be private; set package visibility to public, or supply a Kubernetes image pull secret using a read-only package credential. The default chart assumes public images.
 3. Bootstrap AWS/Kubernetes as described in `docs/OPERATIONS.md`.
-4. Configure a dedicated Linux self-hosted runner with labels `self-hosted`, `linux`, `knowops-deploy`, and install AWS CLI v2, kubectl matching EKS, Helm 3, and Git. Its network must reach the EKS endpoint; include its egress IPv4 CIDR in Terraform `admin_cidrs` or run inside the VPC.
+4. Configure a dedicated Linux self-hosted runner with labels `self-hosted`, `linux`, `Intellectus-deploy`, and install AWS CLI v2, kubectl matching EKS, Helm 3, and Git. Its network must reach the EKS endpoint; include its egress IPv4 CIDR in Terraform `admin_cidrs` or run inside the VPC.
 5. Create a GitHub environment named `capstone`, restrict it to `main`, and configure appropriate deployment protection. OIDC trust is restricted to this repository/environment. Apply `k8s/deployer-rbac.yaml` once as the cluster administrator.
-6. Set repository/environment variables (not credentials): `CAPSTONE_DEPLOY_ENABLED=true`, `AWS_REGION=ap-south-1`, `EKS_CLUSTER_NAME=knowops`, `AWS_DEPLOY_ROLE_ARN` from Terraform output, `CAPSTONE_HOST` to the application hostname, `STORAGE_CLASS=gp3`.
+6. Set repository/environment variables (not credentials): `CAPSTONE_DEPLOY_ENABLED=true`, `AWS_REGION=ap-south-1`, `EKS_CLUSTER_NAME=Intellectus`, `AWS_DEPLOY_ROLE_ARN` from Terraform output, `CAPSTONE_HOST` to the application hostname, `STORAGE_CLASS=gp3`.
 
 The deployment job is intentionally inactive until `CAPSTONE_DEPLOY_ENABLED` is set. CI and image publication work without AWS. Never mark the deployment demo complete merely because that job was skipped.
 
-## Presentation sequence (about 8–10 minutes)
+## Presentation sequence (about 8â€“10 minutes)
 
 1. Show the product at `http://localhost:3000` or the Ingress hostname. Register/sign in, create an organization, upload a sample policy and ask a cited question. Explain PostgreSQL, the asynchronous worker, object storage and vector search.
 2. Show GET `/health`, authenticated CRUD requests and the isolated passing test suite.

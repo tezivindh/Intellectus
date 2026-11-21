@@ -1,5 +1,5 @@
-"""
-Ingestion — Celery tasks.
+﻿"""
+Ingestion â€” Celery tasks.
 
 Runs the synchronous Celery task around the async ingestion pipeline and
 provides a fire-and-forget enqueue helper used by the documents API.
@@ -71,7 +71,7 @@ def process_document_version(self: Task[Any, Any], version_id: str) -> str:
         # Already recorded on the version; retrying would fail the same way.
         logger.warning("Ingestion failed permanently", version_id=version_id, error=str(exc))
         return f"failed:{version_id}"
-    except Exception as exc:  # noqa: BLE001 — retry with backoff
+    except Exception as exc:  # noqa: BLE001 â€” retry with backoff
         logger.error(
             "Ingestion task failed",
             version_id=version_id,
@@ -88,7 +88,7 @@ def enqueue_version_processing(version_id: str) -> bool:
     try:
         process_document_version.delay(version_id)
         return True
-    except Exception as exc:  # noqa: BLE001 — broker may be unavailable
+    except Exception as exc:  # noqa: BLE001 â€” broker may be unavailable
         logger.warning(
             "Could not enqueue ingestion task",
             version_id=version_id,

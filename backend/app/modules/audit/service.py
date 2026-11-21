@@ -1,5 +1,5 @@
-"""
-Audit module — Service layer.
+﻿"""
+Audit module â€” Service layer.
 
 Provides a simple interface for logging audit events from any module.
 """

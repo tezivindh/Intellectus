@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -80,7 +80,7 @@ export function KnowledgeScreen() {
         actions={
           manager && (
             <Button variant="primary" onClick={startScan} loading={starting || scanning} disabled={scanning}>
-              {scanning ? "Scanning…" : "Run scan"}
+              {scanning ? "Scanningâ€¦" : "Run scan"}
             </Button>
           )
         }
@@ -153,7 +153,7 @@ function ScanLine({ state, manager }: { state: ScanState; manager: boolean }) {
     text = (
       <span className="inline-flex items-center gap-2">
         <Spinner className="size-3.5" />
-        {state.status === "queued" ? "Scan queued…" : "Comparing passages across documents…"}
+        {state.status === "queued" ? "Scan queuedâ€¦" : "Comparing passages across documentsâ€¦"}
       </span>
     );
   } else if (state.status === "failed") {
@@ -205,10 +205,10 @@ function FindingRow({
             <span className="font-medium">{f.title}</span>
           </span>
           <span className="mt-0.5 block text-[12.5px] text-muted">
-            {f.finding_type === "unanswered" && f.evidence.count ? `Asked ${plural(f.evidence.count, "time")} · ` : ""}
+            {f.finding_type === "unanswered" && f.evidence.count ? `Asked ${plural(f.evidence.count, "time")} Â· ` : ""}
             Updated {formatRelative(f.updated_at)}
-            {f.assigned_to_name && ` · Assigned to ${f.assigned_to_name}`}
-            {f.status === "in_review" && " · In review"}
+            {f.assigned_to_name && ` Â· Assigned to ${f.assigned_to_name}`}
+            {f.status === "in_review" && " Â· In review"}
           </span>
         </span>
         <SeverityBadge severity={f.severity} />
@@ -242,7 +242,7 @@ function Evidence({ finding: f }: { finding: Finding }) {
                 {p.document_title}
               </Link>
               <span className="text-muted">
-                {[p.section_heading, p.page_number ? `p. ${p.page_number}` : null].filter(Boolean).join(" · ")}
+                {[p.section_heading, p.page_number ? `p. ${p.page_number}` : null].filter(Boolean).join(" Â· ")}
               </span>
             </figcaption>
             <blockquote className="whitespace-pre-wrap text-[13px] leading-relaxed text-ink-2">{passageText(p.text)}</blockquote>
@@ -268,7 +268,7 @@ function Evidence({ finding: f }: { finding: Finding }) {
         </Link>
         <span className="text-muted">
           {" "}
-          · version {f.evidence.version_number} uploaded {formatDate(f.evidence.uploaded_at)}
+          Â· version {f.evidence.version_number} uploaded {formatDate(f.evidence.uploaded_at)}
         </span>
       </p>
     );

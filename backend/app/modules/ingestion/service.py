@@ -1,5 +1,5 @@
-"""
-Ingestion — Service layer.
+﻿"""
+Ingestion â€” Service layer.
 
 Orchestrates the full document-processing pipeline for a version:
 
@@ -184,7 +184,7 @@ class IngestionService:
                 collection=collection,
             )
 
-        except Exception as exc:  # noqa: BLE001 — record failure then re-raise
+        except Exception as exc:  # noqa: BLE001 â€” record failure then re-raise
             await self.db.rollback()
             await self._fail(
                 version_id,

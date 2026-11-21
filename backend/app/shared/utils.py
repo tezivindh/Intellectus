@@ -1,4 +1,4 @@
-"""
+﻿"""
 Shared utilities: pagination, error responses, and common types.
 """
 

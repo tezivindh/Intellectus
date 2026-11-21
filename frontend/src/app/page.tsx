@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { HeroDemo } from "@/components/marketing/hero-demo";
 import { LandingHeader } from "@/components/marketing/landing-header";
@@ -11,7 +11,7 @@ const STEPS = [
   {
     n: "01",
     title: "Upload what you already have",
-    body: "Policies, handbooks, runbooks, FAQs — PDF, Word, Markdown, text or CSV. Each file is split into passages and indexed, with its page or section kept.",
+    body: "Policies, handbooks, runbooks, FAQs â€” PDF, Word, Markdown, text or CSV. Each file is split into passages and indexed, with its page or section kept.",
   },
   {
     n: "02",
@@ -48,7 +48,7 @@ const FEATURES = [
   },
   {
     title: "Access that carries through",
-    body: "Roles, groups and per-document grants apply to search too — people only get answers from what they may read.",
+    body: "Roles, groups and per-document grants apply to search too â€” people only get answers from what they may read.",
   },
 ];
 
@@ -79,8 +79,8 @@ export default function Home() {
               className="fade-in mt-7 max-w-[30rem] text-[17px] leading-relaxed text-ink-2"
               style={{ "--delay": "320ms" } as React.CSSProperties}
             >
-              KnowOps answers questions from your company&apos;s documents and shows the exact passage behind every
-              sentence — so people can trust the answer, or fix the source.
+              Intellectus answers questions from your company&apos;s documents and shows the exact passage behind every
+              sentence â€” so people can trust the answer, or fix the source.
             </p>
             <div className="fade-in mt-9 flex flex-wrap items-center gap-3" style={{ "--delay": "400ms" } as React.CSSProperties}>
               <Link
@@ -109,7 +109,7 @@ export default function Home() {
             {["PDF", "Word", "Markdown", "Plain text", "CSV"].map((f) => (
               <span key={f}>{f}</span>
             ))}
-            <span className="ml-auto hidden normal-case tracking-normal sm:inline">Self-hosted · your model, your data</span>
+            <span className="ml-auto hidden normal-case tracking-normal sm:inline">Self-hosted Â· your model, your data</span>
           </div>
         </div>
 
@@ -140,7 +140,7 @@ export default function Home() {
                 Two documents. Two answers. Now you know.
               </h2>
               <p className="mt-6 max-w-md text-[16px] leading-relaxed text-ink-2">
-                Most knowledge bases don&apos;t fail loudly — they quietly disagree with themselves. KnowOps compares
+                Most knowledge bases don&apos;t fail loudly - they quietly disagree with themselves. Intellectus compares
                 similar passages across documents and flags the ones that contradict each other, with both sides quoted.
               </p>
             </Reveal>
@@ -149,7 +149,7 @@ export default function Home() {
               <Excerpt
                 delay={0}
                 doc="Leave Policy 2025"
-                where="§ Annual leave"
+                where="Â§ Annual leave"
                 text={["Full-time employees receive ", "20 days", " of paid annual leave per calendar year."]}
               />
               <Excerpt
@@ -162,7 +162,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-3 rounded-lg border border-warn/30 bg-warn-soft px-4 py-3 text-[13.5px]">
                   <span className="rounded bg-warn px-1.5 py-px font-mono text-[11px] font-medium text-bg">CONFLICT</span>
                   <span className="font-medium text-ink">Annual leave entitlement differs</span>
-                  <span className="text-ink-2">· found by the last scan</span>
+                  <span className="text-ink-2">Â· found by the last scan</span>
                 </div>
               </Reveal>
             </div>

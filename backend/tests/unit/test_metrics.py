@@ -1,4 +1,4 @@
-from httpx import ASGITransport, AsyncClient
+﻿from httpx import ASGITransport, AsyncClient
 
 from app.main import create_app
 
@@ -14,7 +14,7 @@ async def test_metrics_count_requests_and_bound_unknown_paths():
         assert "text/plain" in response.headers["content-type"]
         assert 'handler="/health",method="GET",status="200"} 1.0' in response.text
         assert 'handler="unmatched",method="GET",status="404"} 2.0' in response.text
-        assert "knowops_http_request_duration_seconds_bucket" in response.text
+        assert "Intellectus_http_request_duration_seconds_bucket" in response.text
         assert "/unknown-a" not in response.text
 
 

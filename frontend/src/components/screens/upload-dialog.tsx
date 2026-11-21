@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, type DragEvent, type FormEvent } from "react";
 import { Upload } from "lucide-react";
@@ -153,7 +153,7 @@ export function UploadDialog({
             </button>
           </p>
           <p className="mt-1 text-[12px] text-muted">
-            PDF, DOCX, TXT, MD or CSV · up to {MAX_MB} MB each. Scanned PDFs without a text layer can&apos;t be read.
+            PDF, DOCX, TXT, MD or CSV Â· up to {MAX_MB} MB each. Scanned PDFs without a text layer can&apos;t be read.
           </p>
           <input
             ref={input}

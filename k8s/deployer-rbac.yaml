@@ -1,9 +1,9 @@
-# AWS EKS access entry maps the GitHub OIDC deployment role to this group.
+﻿# AWS EKS access entry maps the GitHub OIDC deployment role to this group.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: knowops-deployer
-  namespace: knowops
+  name: Intellectus-deployer
+  namespace: Intellectus
 rules:
   - apiGroups: ["", apps, batch, networking.k8s.io, monitoring.coreos.com]
     resources: [configmaps, secrets, services, persistentvolumeclaims, pods, pods/log, events, deployments, replicasets, jobs, ingresses, servicemonitors]
@@ -12,13 +12,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: knowops-deployer
-  namespace: knowops
+  name: Intellectus-deployer
+  namespace: Intellectus
 subjects:
   - kind: Group
-    name: knowops-deployers
+    name: Intellectus-deployers
     apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
-  name: knowops-deployer
+  name: Intellectus-deployer
   apiGroup: rbac.authorization.k8s.io

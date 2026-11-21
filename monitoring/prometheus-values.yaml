@@ -1,4 +1,4 @@
-# kube-prometheus-stack chart 92.10.0; see scripts/install-monitoring.sh.
+﻿# kube-prometheus-stack chart 92.10.0; see scripts/install-monitoring.sh.
 alertmanager:
   enabled: false
 grafana:

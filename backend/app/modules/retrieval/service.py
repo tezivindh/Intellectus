@@ -1,5 +1,5 @@
-"""
-Retrieval — Service layer.
+﻿"""
+Retrieval â€” Service layer.
 
 Semantic search over an organization's vector index with document-level
 permission enforcement. Returns focused passages with source metadata so the

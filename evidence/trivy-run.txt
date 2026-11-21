@@ -1,4 +1,4 @@
-2026-10-16T17:20:13Z	INFO	[vuln] Vulnerability scanning is enabled
+﻿2026-10-16T17:20:13Z	INFO	[vuln] Vulnerability scanning is enabled
 2026-10-16T17:20:17Z	WARN	Third-party SBOM may lead to inaccurate vulnerability detection
 2026-10-16T17:20:17Z	WARN	Recommend using Trivy to generate SBOMs
 2026-10-16T17:20:18Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.

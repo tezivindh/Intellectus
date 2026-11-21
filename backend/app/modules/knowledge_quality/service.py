@@ -1,12 +1,12 @@
-"""
-Knowledge quality module — Service layer.
+﻿"""
+Knowledge quality module â€” Service layer.
 
 Finds and tracks problems in an organization's knowledge base:
 
-- **unanswered** — questions the assistant could not ground in any document
+- **unanswered** â€” questions the assistant could not ground in any document
   (recorded live by the chat flow, de-duplicated per question);
-- **stale** — documents whose active version is older than a threshold;
-- **conflict** — passages in different documents that are semantically close
+- **stale** â€” documents whose active version is older than a threshold;
+- **conflict** â€” passages in different documents that are semantically close
   and that the LLM judges to make contradictory claims.
 
 Stale and conflict detection run as an on-demand scan in the worker. The scan
@@ -66,7 +66,7 @@ SCAN_NEIGHBOURS_PER_CHUNK = 3
 CONFLICT_SYSTEM_PROMPT = (
     "You audit company documents for contradictions. You are given two passages "
     "from different documents. Decide whether they make directly contradictory "
-    "claims about the same subject — for example different numbers, dates, "
+    "claims about the same subject â€” for example different numbers, dates, "
     "deadlines, owners, or rules for the same thing. Differences in scope, "
     "wording, emphasis, or level of detail are NOT conflicts, and neither is one "
     "passage simply covering something the other does not mention.\n"
@@ -632,7 +632,7 @@ class KnowledgeQualityService:
                 location.append(f"page {p['page_number']}")
             loc = f" ({', '.join(location)})" if location else ""
             title = titles.get(str(p.get("document_id")), "Untitled")
-            return f"PASSAGE {label} — {title}{loc}\n{p.get('text', '')}"
+            return f"PASSAGE {label} â€” {title}{loc}\n{p.get('text', '')}"
 
         response = await llm.chat_completion(
             messages=[{"role": "user", "content": f"{describe('A', a)}\n\n{describe('B', b)}"}],

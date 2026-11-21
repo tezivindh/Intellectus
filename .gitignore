@@ -1,4 +1,4 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
 .venv/
 venv/
@@ -36,6 +36,7 @@ out/
 
 # Docker
 *.log
+docker-compose.override.yml
 
 # Coverage
 htmlcov/

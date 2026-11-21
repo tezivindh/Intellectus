@@ -1,4 +1,4 @@
-"""
+﻿"""
 Embeddings Service.
 
 Supports two providers, selected via ``EMBEDDING_PROVIDER``:
@@ -8,7 +8,7 @@ Supports two providers, selected via ``EMBEDDING_PROVIDER``:
 - ``openai``: any OpenAI-compatible ``/embeddings`` endpoint.
 
 The service is a lazy singleton: the (potentially large) local model is only
-loaded on first use. All methods are synchronous — callers running inside an
+loaded on first use. All methods are synchronous â€” callers running inside an
 async context should wrap calls with ``asyncio.to_thread`` to avoid blocking
 the event loop.
 """

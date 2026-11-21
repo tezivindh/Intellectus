@@ -1,5 +1,5 @@
-"""
-Organizations module — Service layer.
+﻿"""
+Organizations module â€” Service layer.
 
 Organization CRUD, membership management, and group operations.
 All operations enforce tenant scoping.

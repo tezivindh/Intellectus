@@ -1,7 +1,7 @@
-[project]
-name = "knowops-backend"
+﻿[project]
+name = "Intellectus-backend"
 version = "0.1.0"
-description = "KnowOps — AI Knowledge & Operations Agent Backend"
+description = "Intellectus â€” AI Knowledge & Operations Agent Backend"
 requires-python = ">=3.12"
 dependencies = [
     # Web framework

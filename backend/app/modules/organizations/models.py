@@ -1,5 +1,5 @@
-"""
-Organizations module — SQLAlchemy models.
+﻿"""
+Organizations module â€” SQLAlchemy models.
 
 Organizations, memberships, groups, and group memberships.
 Every tenant-owned record traces back to an organization.

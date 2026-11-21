@@ -1,5 +1,5 @@
-"""
-Actions module — API router.
+﻿"""
+Actions module â€” API router.
 """
 
 import json

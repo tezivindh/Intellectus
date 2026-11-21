@@ -1,12 +1,12 @@
-# A patched Wolfi runtime avoids inheriting Debian's unfixed HIGH CVEs.
+﻿# A patched Wolfi runtime avoids inheriting Debian's unfixed HIGH CVEs.
 FROM cgr.dev/chainguard/wolfi-base@sha256:256c88bb066424045021090932d50be93c8e3f2ce3586707702a401b146f3e43 AS python-base
 USER 0
 RUN apk add --no-cache python-3.12 libgomp libstdc++ \
-    && mkdir -p /home/knowops/.cache/fastembed \
-    && chown -R 10001:10001 /home/knowops
-ENV PATH="/opt/venv/bin:$PATH" HOME=/home/knowops \
+    && mkdir -p /home/Intellectus/.cache/fastembed \
+    && chown -R 10001:10001 /home/Intellectus
+ENV PATH="/opt/venv/bin:$PATH" HOME=/home/Intellectus \
     PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
-    EMBEDDING_CACHE_DIR=/home/knowops/.cache/fastembed
+    EMBEDDING_CACHE_DIR=/home/Intellectus/.cache/fastembed
 
 FROM python-base AS builder
 WORKDIR /build
@@ -23,6 +23,8 @@ USER 10001:10001
 CMD ["pytest", "-v", "-p", "no:cacheprovider"]
 
 FROM python-base AS runtime
+# Celery/kombu resolve ZoneInfo("UTC") at import time, which needs the tz database.
+RUN apk add --no-cache tzdata
 WORKDIR /app
 COPY --from=builder /opt/venv /opt/venv
 # Package installation belongs in the builder, not the serving image.

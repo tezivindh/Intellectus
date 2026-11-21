@@ -1,5 +1,5 @@
-"""
-Vector Service — Qdrant vector database client.
+﻿"""
+Vector Service â€” Qdrant vector database client.
 
 Handles collection management, vector upsert, search with filtering,
 and embedding consistency enforcement per the technical spec.

@@ -1,5 +1,5 @@
-"""
-Actions module — Pydantic schemas.
+﻿"""
+Actions module â€” Pydantic schemas.
 """
 
 from datetime import date, datetime

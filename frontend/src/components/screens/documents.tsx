@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -134,7 +134,7 @@ export function DocumentsScreen() {
                       </Link>
                       <span className="block truncate text-[12px] text-muted">
                         {d.original_filename}
-                        {d.status === "failed" && <span className="text-danger"> · couldn&apos;t be read, open for details</span>}
+                        {d.status === "failed" && <span className="text-danger"> Â· couldn&apos;t be read, open for details</span>}
                       </span>
                     </td>
                     <td className="hidden px-3 py-2.5 font-mono text-[11.5px] uppercase text-muted sm:table-cell">{d.file_type}</td>
@@ -142,7 +142,7 @@ export function DocumentsScreen() {
                       <StatusBadge status={d.status} />
                     </td>
                     <td className="hidden truncate px-3 py-2.5 text-ink-2 md:table-cell">
-                      {[d.category, d.department].filter(Boolean).join(" · ") || <span className="text-muted">—</span>}
+                      {[d.category, d.department].filter(Boolean).join(" Â· ") || <span className="text-muted">â€”</span>}
                     </td>
                     <td className="hidden whitespace-nowrap py-2.5 pl-3 pr-1 text-right text-[12.5px] text-muted sm:table-cell">
                       {formatRelative(d.updated_at)}

@@ -1,5 +1,5 @@
-"""
-Versioning — API router.
+﻿"""
+Versioning â€” API router.
 """
 
 from datetime import datetime

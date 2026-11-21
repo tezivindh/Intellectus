@@ -1,4 +1,4 @@
-data "aws_caller_identity" "current" {}
+﻿data "aws_caller_identity" "current" {}
 resource "aws_iam_openid_connect_provider" "github" {
   count          = var.create_github_oidc_provider ? 1 : 0
   url            = "https://token.actions.githubusercontent.com"
@@ -34,6 +34,6 @@ resource "aws_iam_role_policy" "github_deploy" {
 resource "aws_eks_access_entry" "github" {
   cluster_name      = aws_eks_cluster.main.name
   principal_arn     = aws_iam_role.github_deploy.arn
-  kubernetes_groups = ["knowops-deployers"]
+  kubernetes_groups = ["Intellectus-deployers"]
   type              = "STANDARD"
 }

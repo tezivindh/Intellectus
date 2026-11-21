@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Session store: the signed-in user, their organizations, and which one is
  * active. The active organization is remembered per browser.
  */
@@ -6,7 +6,7 @@
 import { create } from "zustand";
 import { api, ApiError, type Organization, type User } from "@/lib/api";
 
-const ACTIVE_ORG_KEY = "knowops.org";
+const ACTIVE_ORG_KEY = "Intellectus.org";
 
 function rememberOrg(id: string | null) {
   try {

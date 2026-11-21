@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -197,7 +197,7 @@ export function DocumentDetailScreen() {
         }
       >
         <p className="text-[13.5px] text-ink-2">
-          “{d.title}” will stop appearing in answers immediately. You can restore it later from the Archived filter.
+          â€œ{d.title}â€ will stop appearing in answers immediately. You can restore it later from the Archived filter.
         </p>
       </Dialog>
     </div>
@@ -281,7 +281,7 @@ function DetailsTab({ doc, canEdit, onSaved }: { doc: DocumentDetail; canEdit: b
       <dl className="grid grid-cols-2 gap-x-6 gap-y-2 border-t border-rule pt-4 text-[13px] sm:grid-cols-3">
         <Meta label="File type" value={doc.file_type.toUpperCase()} />
         <Meta label="Created" value={formatDate(doc.created_at)} />
-        <Meta label="Your access" value={doc.my_permission ? doc.my_permission[0].toUpperCase() + doc.my_permission.slice(1) : "—"} />
+        <Meta label="Your access" value={doc.my_permission ? doc.my_permission[0].toUpperCase() + doc.my_permission.slice(1) : "â€”"} />
       </dl>
       {canEdit && (
         <div className="flex gap-2">
@@ -456,10 +456,10 @@ function CompareDialog({
     }
   }
 
-  const label = (v: DocumentVersion) => `v${v.version_number} · ${formatDate(v.created_at)}`;
+  const label = (v: DocumentVersion) => `v${v.version_number} Â· ${formatDate(v.created_at)}`;
 
   return (
-    <Dialog open onClose={onClose} title={`Compare versions of “${doc.title}”`} width="max-w-4xl">
+    <Dialog open onClose={onClose} title={`Compare versions of â€œ${doc.title}â€`} width="max-w-4xl">
       <div className="mb-4 flex flex-wrap items-end gap-3">
         <Field label="From">
           {(id) => (
@@ -486,7 +486,7 @@ function CompareDialog({
         {!same && diff.data && (
           <p className="tabular pb-1.5 text-[13px]">
             <span className="text-accent">+{diff.data.added}</span>{" "}
-            <span className="text-danger">−{diff.data.removed}</span>{" "}
+            <span className="text-danger">âˆ’{diff.data.removed}</span>{" "}
             <span className="text-muted">lines</span>
           </p>
         )}
@@ -519,7 +519,7 @@ function CompareDialog({
             {diff.data.hunks.map((hunk, i) => (
               <div key={i} className={i ? "border-t border-rule" : ""}>
                 <div className="bg-surface-2 px-3 py-1 text-[11.5px] text-muted">
-                  v{diff.data!.base.version_number} line {hunk.base_start} · v{diff.data!.target.version_number} line {hunk.target_start}
+                  v{diff.data!.base.version_number} line {hunk.base_start} Â· v{diff.data!.target.version_number} line {hunk.target_start}
                 </div>
                 {hunk.lines.map((line, j) => (
                   <div
@@ -529,7 +529,7 @@ function CompareDialog({
                     }`}
                   >
                     <span className="w-6 shrink-0 select-none text-center text-muted" aria-hidden="true">
-                      {line.kind === "added" ? "+" : line.kind === "removed" ? "−" : ""}
+                      {line.kind === "added" ? "+" : line.kind === "removed" ? "âˆ’" : ""}
                     </span>
                     <span className="sr-only">{line.kind === "context" ? "" : line.kind}</span>
                     <span className="whitespace-pre-wrap break-words py-px pr-3">{line.text}</span>
@@ -577,7 +577,7 @@ function AccessTab({
   const options =
     subjectType === "user"
       ? members.map((m) => ({ id: m.user_id, label: `${m.user_name} (${m.user_email})` }))
-      : groups.map((g) => ({ id: g.id, label: `${g.name} · ${g.member_count} member${g.member_count === 1 ? "" : "s"}` }));
+      : groups.map((g) => ({ id: g.id, label: `${g.name} Â· ${g.member_count} member${g.member_count === 1 ? "" : "s"}` }));
 
   async function grant(e: FormEvent) {
     e.preventDefault();
@@ -703,7 +703,7 @@ function AccessTab({
               <Field label={subjectType === "user" ? "Person" : "Group"} className="min-w-56 flex-1">
                 {(id) => (
                   <Select id={id} value={subjectId} onChange={(e) => setSubjectId(e.target.value)} required>
-                    <option value="">Choose…</option>
+                    <option value="">Chooseâ€¦</option>
                     {options.map((o) => (
                       <option key={o.id} value={o.id}>
                         {o.label}

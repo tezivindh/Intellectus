@@ -1,5 +1,5 @@
-"""
-Documents module — SQLAlchemy models.
+﻿"""
+Documents module â€” SQLAlchemy models.
 
 Documents, document versions, document permissions, and processing jobs.
 Implements immutable versions, three-level permissions, and lifecycle management.

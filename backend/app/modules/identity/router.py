@@ -1,5 +1,5 @@
-"""
-Identity module — API router.
+﻿"""
+Identity module â€” API router.
 
 Authentication endpoints: register, login, refresh, logout, and user profile.
 """

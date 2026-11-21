@@ -1,4 +1,4 @@
-KnowOps deployed to {{ .Release.Namespace }}.
+﻿Intellectus deployed to {{ .Release.Namespace }}.
 Application: http://{{ .Values.ingress.host }}
 
 kubectl get pods,svc,ingress -n {{ .Release.Namespace }}

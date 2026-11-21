@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -27,7 +27,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   useEffect(() => {
     const token = new URLSearchParams(window.location.hash.slice(1)).get("invitation");
     if (token) {
-      sessionStorage.setItem("knowops.invitation", token);
+      sessionStorage.setItem("Intellectus.invitation", token);
       window.history.replaceState(null, "", window.location.pathname);
     }
     restore().catch(() => {});
@@ -38,10 +38,10 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
     let cancelled = false;
     async function finish() {
       try {
-        const token = sessionStorage.getItem("knowops.invitation");
+        const token = sessionStorage.getItem("Intellectus.invitation");
         if (token) {
           const member = await api.acceptInvitation(token);
-          sessionStorage.removeItem("knowops.invitation");
+          sessionStorage.removeItem("Intellectus.invitation");
           await useSession.getState().refreshOrganizations(member.organization_id);
         }
         if (!cancelled) router.replace("/app");
@@ -104,7 +104,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
                 </>
               ) : (
                 <>
-                  New to KnowOps?{" "}
+                  New to Intellectus?{" "}
                   <Link href="/register" className="font-medium text-accent underline-offset-2 hover:underline">
                     Create an account
                   </Link>
@@ -253,7 +253,7 @@ function LoginPanel() {
             <div className="flex items-baseline gap-2">
               <span className="font-mono text-[11px] text-accent">[1]</span>
               <span className="font-medium">Security Incident Runbook</span>
-              <span className="text-muted">§ Reporting</span>
+              <span className="text-muted">Â§ Reporting</span>
             </div>
             <blockquote className="ml-6 mt-2 border-l-2 border-accent pl-3 leading-relaxed text-ink-2">
               Report suspected incidents to the security team{" "}
@@ -267,14 +267,14 @@ function LoginPanel() {
       </Reveal>
 
       <p className="fade-in mt-6 text-[13.5px] leading-relaxed text-ink-2" style={delay(500)}>
-        Every sentence links to the passage it came from — so you can check it in a click.
+        Every sentence links to the passage it came from â€” so you can check it in a click.
       </p>
     </>
   );
 }
 
 const STEPS = [
-  { n: "01", title: "Upload your documents", body: "Policies, handbooks and runbooks — PDF, Word, Markdown, text or CSV." },
+  { n: "01", title: "Upload your documents", body: "Policies, handbooks and runbooks â€” PDF, Word, Markdown, text or CSV." },
   { n: "02", title: "Ask in plain language", body: "Every answer cites the exact passage, page or section it came from." },
   { n: "03", title: "Fix what's wrong", body: "Conflicts, stale documents and unanswered questions are flagged for you." },
 ];

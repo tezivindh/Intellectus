@@ -1,4 +1,4 @@
-"""Unit tests for the version diff."""
+﻿"""Unit tests for the version diff."""
 
 from app.modules.versioning.service import diff_texts
 

@@ -1,5 +1,5 @@
-/**
- * KnowOps API client.
+﻿/**
+ * Intellectus API client.
  *
  * A thin fetch wrapper that attaches the access token, transparently rotates
  * it once on a 401, and turns every failure into an `ApiError` with a
@@ -7,8 +7,8 @@
  */
 
 const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
-const ACCESS_KEY = "knowops.access";
-const REFRESH_KEY = "knowops.refresh";
+const ACCESS_KEY = "Intellectus.access";
+const REFRESH_KEY = "Intellectus.refresh";
 
 // --- Types -----------------------------------------------------------------
 
@@ -452,7 +452,7 @@ class ApiClient {
         // Web Locks serialize rotation across tabs on the same origin.
         // Browsers without this API must sign in again when access expires.
         if (typeof navigator === "undefined" || !navigator.locks) return false;
-        return await navigator.locks.request("knowops.refresh", rotate);
+        return await navigator.locks.request("Intellectus.refresh", rotate);
       } finally {
         setTimeout(() => (this.refreshing = null), 0);
       }
@@ -470,7 +470,7 @@ class ApiClient {
       return await fetch(`${API_BASE}${path}`, { ...init, headers });
     } catch {
       throw new ApiError(
-        "Can't reach the KnowOps server. Check your connection and try again.",
+        "Can't reach the Intellectus server. Check your connection and try again.",
         "NETWORK_ERROR",
         0,
       );

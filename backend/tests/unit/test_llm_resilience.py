@@ -1,4 +1,4 @@
-"""Controlled provider failures exercise the real retry/fallback implementation."""
+﻿"""Controlled provider failures exercise the real retry/fallback implementation."""
 
 from types import SimpleNamespace
 from unittest.mock import AsyncMock

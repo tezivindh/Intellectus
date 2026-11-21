@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
 
 /**
- * A scripted, interactive replica of the Ask screen. Purpose: explanation —
- * it shows in a few seconds what the product does (search → cited answer →
+ * A scripted, interactive replica of the Ask screen. Purpose: explanation â€”
+ * it shows in a few seconds what the product does (search â†’ cited answer â†’
  * open the exact passage). It plays once, then hands control to the visitor.
  */
 
@@ -13,7 +13,7 @@ const SOURCES = [
   {
     n: 1,
     doc: "Leave Policy 2025",
-    where: "§ Annual leave",
+    where: "Â§ Annual leave",
     before: "Full-time employees receive ",
     mark: "20 days",
     after: " of paid annual leave per calendar year. Up to 5 unused days carry into the next year.",
@@ -28,7 +28,7 @@ const SOURCES = [
   },
 ];
 
-// Phases: 0 question · 1 searching · 2 answer · 3 sources · 4 interactive
+// Phases: 0 question Â· 1 searching Â· 2 answer Â· 3 sources Â· 4 interactive
 const TIMELINE = [400, 1300, 2300, 3000];
 
 export function HeroDemo() {
@@ -62,7 +62,7 @@ export function HeroDemo() {
     <figure
       className="fade-in relative overflow-hidden rounded-xl border border-rule-strong bg-surface shadow-[0_1px_0_rgb(0_0_0/0.04),0_24px_60px_-28px_rgb(0_0_0/0.25)]"
       style={{ "--delay": "450ms" } as React.CSSProperties}
-      aria-label="Example of KnowOps answering a question with citations"
+      aria-label="Example of Intellectus answering a question with citations"
     >
       {/* Window chrome */}
       <div className="flex items-center justify-between border-b border-rule px-4 py-2.5">
@@ -71,7 +71,7 @@ export function HeroDemo() {
           <span className="size-2.5 rounded-full bg-rule-strong" />
           <span className="size-2.5 rounded-full bg-rule-strong" />
         </div>
-        <span className="font-mono text-[11px] text-muted">knowops / ask</span>
+        <span className="font-mono text-[11px] text-muted">Intellectus / ask</span>
         <button
           type="button"
           onClick={replay}
@@ -104,7 +104,7 @@ export function HeroDemo() {
                 />
               ))}
             </span>
-            Searching 3 documents…
+            Searching 3 documentsâ€¦
           </p>
 
           <p className={`leading-[1.7] text-ink ${show(2)}`}>

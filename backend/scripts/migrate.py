@@ -1,4 +1,4 @@
-"""Serialize release migrations and initialize object storage before serving traffic."""
+﻿"""Serialize release migrations and initialize object storage before serving traffic."""
 
 import asyncio
 import subprocess

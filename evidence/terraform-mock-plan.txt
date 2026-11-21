@@ -1,4 +1,4 @@
-tests/infra.tftest.hcl... in progress
+﻿tests/infra.tftest.hcl... in progress
   run "capstone_infrastructure"... pass
 
 Terraform used the selected providers to generate the following execution
@@ -13,7 +13,7 @@ Terraform will perform the following actions:
       + deletion_protection_enabled = (known after apply)
       + id                          = (known after apply)
       + log_group_class             = (known after apply)
-      + name                        = "/aws/eks/knowops/cluster"
+      + name                        = "/aws/eks/Intellectus/cluster"
       + name_prefix                 = (known after apply)
       + region                      = (known after apply)
       + retention_in_days           = 7
@@ -23,11 +23,11 @@ Terraform will perform the following actions:
   # aws_eks_access_entry.github will be created
   + resource "aws_eks_access_entry" "github" {
       + access_entry_arn  = (known after apply)
-      + cluster_name      = "knowops"
+      + cluster_name      = "Intellectus"
       + created_at        = (known after apply)
       + id                = (known after apply)
       + kubernetes_groups = [
-          + "knowops-deployers",
+          + "Intellectus-deployers",
         ]
       + modified_at       = (known after apply)
       + principal_arn     = (known after apply)
@@ -42,7 +42,7 @@ Terraform will perform the following actions:
       + addon_name           = "aws-ebs-csi-driver"
       + addon_version        = (known after apply)
       + arn                  = (known after apply)
-      + cluster_name         = "knowops"
+      + cluster_name         = "Intellectus"
       + configuration_values = (known after apply)
       + created_at           = (known after apply)
       + id                   = (known after apply)
@@ -66,7 +66,7 @@ Terraform will perform the following actions:
       + endpoint                  = (known after apply)
       + id                        = (known after apply)
       + identity                  = (known after apply)
-      + name                      = "knowops"
+      + name                      = "Intellectus"
       + platform_version          = (known after apply)
       + region                    = (known after apply)
       + role_arn                  = (known after apply)
@@ -100,13 +100,13 @@ Terraform will perform the following actions:
       + ami_type               = "AL2023_x86_64_STANDARD"
       + arn                    = (known after apply)
       + capacity_type          = (known after apply)
-      + cluster_name           = "knowops"
+      + cluster_name           = "Intellectus"
       + disk_size              = 30
       + id                     = (known after apply)
       + instance_types         = [
           + "t3.large",
         ]
-      + node_group_name        = "knowops-workers"
+      + node_group_name        = "Intellectus-workers"
       + node_group_name_prefix = (known after apply)
       + node_role_arn          = (known after apply)
       + region                 = (known after apply)
@@ -163,7 +163,7 @@ Terraform will perform the following actions:
       + create_date         = (known after apply)
       + id                  = (known after apply)
       + managed_policy_arns = (known after apply)
-      + name                = "knowops-eks-cluster"
+      + name                = "Intellectus-eks-cluster"
       + name_prefix         = (known after apply)
       + tags_all            = (known after apply)
       + unique_id           = (known after apply)
@@ -176,7 +176,7 @@ Terraform will perform the following actions:
       + create_date         = (known after apply)
       + id                  = (known after apply)
       + managed_policy_arns = (known after apply)
-      + name                = "knowops-github-deploy"
+      + name                = "Intellectus-github-deploy"
       + name_prefix         = (known after apply)
       + tags_all            = (known after apply)
       + unique_id           = (known after apply)
@@ -202,7 +202,7 @@ Terraform will perform the following actions:
       + create_date         = (known after apply)
       + id                  = (known after apply)
       + managed_policy_arns = (known after apply)
-      + name                = "knowops-eks-node"
+      + name                = "Intellectus-eks-node"
       + name_prefix         = (known after apply)
       + tags_all            = (known after apply)
       + unique_id           = (known after apply)
@@ -221,35 +221,35 @@ Terraform will perform the following actions:
   + resource "aws_iam_role_policy_attachment" "cluster" {
       + id         = (known after apply)
       + policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-      + role       = "knowops-eks-cluster"
+      + role       = "Intellectus-eks-cluster"
     }
 
   # aws_iam_role_policy_attachment.node["AmazonEC2ContainerRegistryReadOnly"] will be created
   + resource "aws_iam_role_policy_attachment" "node" {
       + id         = (known after apply)
       + policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-      + role       = "knowops-eks-node"
+      + role       = "Intellectus-eks-node"
     }
 
   # aws_iam_role_policy_attachment.node["AmazonEKSWorkerNodePolicy"] will be created
   + resource "aws_iam_role_policy_attachment" "node" {
       + id         = (known after apply)
       + policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-      + role       = "knowops-eks-node"
+      + role       = "Intellectus-eks-node"
     }
 
   # aws_iam_role_policy_attachment.node["AmazonEKS_CNI_Policy"] will be created
   + resource "aws_iam_role_policy_attachment" "node" {
       + id         = (known after apply)
       + policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-      + role       = "knowops-eks-node"
+      + role       = "Intellectus-eks-node"
     }
 
   # aws_iam_role_policy_attachment.node["service-role/AmazonEBSCSIDriverPolicy"] will be created
   + resource "aws_iam_role_policy_attachment" "node" {
       + id         = (known after apply)
       + policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
-      + role       = "knowops-eks-node"
+      + role       = "Intellectus-eks-node"
     }
 
   # aws_internet_gateway.main will be created
@@ -309,8 +309,8 @@ Terraform will perform the following actions:
       + private_dns_hostname_type_on_launch = (known after apply)
       + region                              = (known after apply)
       + tags                                = {
-          + "Name"                          = "knowops-public-1"
-          + "kubernetes.io/cluster/knowops" = "shared"
+          + "Name"                          = "Intellectus-public-1"
+          + "kubernetes.io/cluster/Intellectus" = "shared"
           + "kubernetes.io/role/elb"        = "1"
         }
       + tags_all                            = (known after apply)
@@ -331,8 +331,8 @@ Terraform will perform the following actions:
       + private_dns_hostname_type_on_launch = (known after apply)
       + region                              = (known after apply)
       + tags                                = {
-          + "Name"                          = "knowops-public-2"
-          + "kubernetes.io/cluster/knowops" = "shared"
+          + "Name"                          = "Intellectus-public-2"
+          + "kubernetes.io/cluster/Intellectus" = "shared"
           + "kubernetes.io/role/elb"        = "1"
         }
       + tags_all                            = (known after apply)
@@ -358,7 +358,7 @@ Terraform will perform the following actions:
       + owner_id                             = (known after apply)
       + region                               = (known after apply)
       + tags                                 = {
-          + "Name" = "knowops-vpc"
+          + "Name" = "Intellectus-vpc"
         }
       + tags_all                             = (known after apply)
     }
@@ -366,8 +366,8 @@ Terraform will perform the following actions:
 Plan: 22 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
-  + cluster_name           = "knowops"
-  + configure_kubectl      = "aws eks update-kubeconfig --region ap-south-1 --name knowops"
+  + cluster_name           = "Intellectus"
+  + configure_kubectl      = "aws eks update-kubeconfig --region ap-south-1 --name Intellectus"
   + github_deploy_role_arn = (known after apply)
   + public_subnet_ids      = [
       + (known after apply),

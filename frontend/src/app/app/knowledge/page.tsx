@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { KnowledgeScreen } from "@/components/screens/knowledge";
 
 export const metadata: Metadata = { title: "Knowledge health" };

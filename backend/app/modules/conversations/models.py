@@ -1,5 +1,5 @@
-"""
-Conversations module — SQLAlchemy models.
+﻿"""
+Conversations module â€” SQLAlchemy models.
 
 Conversations, messages, and message citations.
 Citations link AI claims to specific document passages.

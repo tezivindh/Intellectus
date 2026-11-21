@@ -1,5 +1,5 @@
-"""
-Knowledge quality module — Pydantic schemas.
+﻿"""
+Knowledge quality module â€” Pydantic schemas.
 """
 
 from datetime import datetime

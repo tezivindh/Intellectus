@@ -1,4 +1,4 @@
-"""
+﻿"""
 Celery application configuration.
 
 Background job queue for document processing, embedding, and analysis.
@@ -14,7 +14,7 @@ from app.config import get_settings
 settings = get_settings()
 
 celery_app = Celery(
-    "knowops",
+    "Intellectus",
     broker=settings.celery_broker_url,
     backend=settings.celery_result_backend,
 )

@@ -1,18 +1,18 @@
-apiVersion: apps/v1
+﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "knowops.name" . }}-backend
+  name: {{ include "Intellectus.name" . }}-backend
   labels:
-    {{- include "knowops.labels" . | nindent 4 }}
+    {{- include "Intellectus.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas.backend }}
   selector:
-    matchLabels: { app: {{ include "knowops.name" . }}-backend }
+    matchLabels: { app: {{ include "Intellectus.name" . }}-backend }
   template:
     metadata:
       labels:
-        app: {{ include "knowops.name" . }}-backend
-        {{- include "knowops.labels" . | nindent 8 }}
+        app: {{ include "Intellectus.name" . }}-backend
+        {{- include "Intellectus.labels" . | nindent 8 }}
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
     spec:
@@ -22,17 +22,17 @@ spec:
       automountServiceAccountToken: false
       securityContext: { runAsUser: 10001, runAsGroup: 10001, fsGroup: 10001 }
       initContainers:
-        {{- include "knowops.wait" . | nindent 8 }}
+        {{- include "Intellectus.wait" . | nindent 8 }}
       containers:
         - name: backend
           image: "{{ .Values.images.backend.repository }}:{{ .Values.images.backend.tag }}"
           imagePullPolicy: {{ .Values.images.backend.pullPolicy }}
           ports: [{ name: http, containerPort: 8000 }]
           envFrom:
-            - configMapRef: { name: {{ include "knowops.name" . }}-config }
+            - configMapRef: { name: {{ include "Intellectus.name" . }}-config }
             - secretRef: { name: {{ .Values.secretName }} }
           securityContext:
-            {{- include "knowops.security" . | nindent 12 }}
+            {{- include "Intellectus.security" . | nindent 12 }}
           resources: {{ toYaml .Values.resources.backend | nindent 12 }}
           startupProbe:
             httpGet: { path: /health, port: http }
@@ -44,7 +44,7 @@ spec:
             httpGet: { path: /ready, port: http }
             timeoutSeconds: 5
           volumeMounts:
-            - { name: cache, mountPath: /home/knowops/.cache }
+            - { name: cache, mountPath: /home/Intellectus/.cache }
       volumes:
         - name: cache
           emptyDir: {}
@@ -52,11 +52,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "knowops.name" . }}-backend
+  name: {{ include "Intellectus.name" . }}-backend
   labels:
-    app: {{ include "knowops.name" . }}-backend
-    {{- include "knowops.labels" . | nindent 4 }}
+    app: {{ include "Intellectus.name" . }}-backend
+    {{- include "Intellectus.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
-  selector: { app: {{ include "knowops.name" . }}-backend }
+  selector: { app: {{ include "Intellectus.name" . }}-backend }
   ports: [{ name: http, port: 8000, targetPort: http }]

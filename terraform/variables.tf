@@ -1,13 +1,13 @@
-variable "aws_region" {
+﻿variable "aws_region" {
   type    = string
   default = "ap-south-1"
 }
 variable "project_name" {
   type    = string
-  default = "knowops"
+  default = "Intellectus"
   validation {
     condition     = can(regex("^[a-z][a-z0-9-]{2,24}$", var.project_name))
-    error_message = "Use a lowercase project name of 3–25 characters."
+    error_message = "Use a lowercase project name of 3â€“25 characters."
   }
 }
 variable "kubernetes_version" {
@@ -37,7 +37,7 @@ variable "node_desired_size" {
 variable "github_repository" {
   description = "Repository allowed to deploy through GitHub OIDC."
   type        = string
-  default     = "tezivindh/knowops"
+  default     = "tezivindh/Intellectus"
 }
 variable "create_github_oidc_provider" {
   description = "Set false if this AWS account already has the GitHub OIDC provider."

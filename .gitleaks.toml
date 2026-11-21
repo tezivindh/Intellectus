@@ -1,4 +1,4 @@
-[extend]
+﻿[extend]
 useDefault = true
 
 # These are literal test-only values, present in the original test fixtures.

@@ -1,4 +1,4 @@
-"""document restricted flag
+﻿"""document restricted flag
 
 Revision ID: b7e2d4f1c9a3
 Revises: a1f3c9d2e7b4

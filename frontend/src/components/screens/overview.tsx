@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -65,7 +65,7 @@ export function OverviewScreen() {
               <Link href="/app/documents" className="text-accent hover:underline">
                 Upload the first one
               </Link>{" "}
-              — answers can only come from what&apos;s been uploaded.
+              â€” answers can only come from what&apos;s been uploaded.
             </p>
           ) : (
             <ul className="divide-y divide-rule border-y border-rule">

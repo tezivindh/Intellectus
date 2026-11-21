@@ -1,4 +1,4 @@
-Release "monitoring" does not exist. Installing it now.
+﻿Release "monitoring" does not exist. Installing it now.
 NAME: monitoring
 LAST DEPLOYED: Fri Oct 16 22:40:47 2026
 NAMESPACE: monitoring

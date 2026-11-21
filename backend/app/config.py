@@ -1,5 +1,5 @@
-"""
-KnowOps application configuration.
+﻿"""
+Intellectus application configuration.
 
 Pydantic Settings for type-safe, environment-driven configuration.
 All secrets and service URLs are loaded from environment variables.
@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     )
 
     # --- Application ---
-    app_name: str = "KnowOps"
+    app_name: str = "Intellectus"
     app_env: Literal["development", "testing", "production"] = "development"
     debug: bool = True
     log_level: str = "INFO"
@@ -41,8 +41,8 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
 
     # --- PostgreSQL ---
-    database_url: str = "postgresql+asyncpg://knowops:knowops@localhost:5432/knowops"
-    test_database_url: str = "postgresql+asyncpg://knowops:knowops@localhost:5432/knowops_test"
+    database_url: str = "postgresql+asyncpg://Intellectus:Intellectus@localhost:5432/Intellectus"
+    test_database_url: str = "postgresql+asyncpg://Intellectus:Intellectus@localhost:5432/Intellectus_test"
 
     # --- Redis ---
     redis_url: str = "redis://localhost:6379/0"
@@ -52,9 +52,9 @@ class Settings(BaseSettings):
 
     # --- MinIO ---
     minio_endpoint: str = "localhost:9000"
-    minio_access_key: str = "knowops"
-    minio_secret_key: str = "knowops123"
-    minio_bucket: str = "knowops-documents"
+    minio_access_key: str = "Intellectus"
+    minio_secret_key: str = "Intellectus123"
+    minio_bucket: str = "Intellectus-documents"
     minio_use_ssl: bool = False
 
     # --- Qdrant ---
@@ -127,7 +127,7 @@ class Settings(BaseSettings):
                 for key in (self.secret_key, self.jwt_secret_key)
             ):
                 raise ValueError("Production requires distinct non-placeholder secrets")
-            if self.minio_secret_key == "knowops123":
+            if self.minio_secret_key == "Intellectus123":
                 raise ValueError("Production requires private storage credentials")
         return self
 

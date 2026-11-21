@@ -1,5 +1,5 @@
-"""
-Organizations module — Pydantic schemas.
+﻿"""
+Organizations module â€” Pydantic schemas.
 """
 
 from datetime import datetime

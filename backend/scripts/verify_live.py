@@ -1,4 +1,4 @@
-"""Opt-in, real integration campaign; creates and removes only its own scratch database.
+﻿"""Opt-in, real integration campaign; creates and removes only its own scratch database.
 
 Run from backend: .venv/bin/python scripts/verify_live.py
 Uses real Redis/Celery/MinIO/Qdrant/embeddings/Groq. Never sends email.
@@ -29,7 +29,7 @@ async def main():
     if not settings.llm_api_key:
         raise RuntimeError("Set LLM_API_KEY before running live verification")
     suffix = uuid.uuid4().hex
-    database = f"knowops_audit_{suffix}"
+    database = f"Intellectus_audit_{suffix}"
     queue = f"audit_{suffix}"
     base = make_url(settings.test_database_url)
     admin = await asyncpg.connect(host=base.host, port=base.port or 5432,
@@ -43,7 +43,7 @@ async def main():
     org_ids = []
     object_keys = []
     report = {"database": "isolated scratch database", "checks": [], "timings_seconds": {}}
-    log = tempfile.NamedTemporaryFile(prefix="knowops-audit-worker-", suffix=".log", mode="w+")
+    log = tempfile.NamedTemporaryFile(prefix="Intellectus-audit-worker-", suffix=".log", mode="w+")
     try:
         for args in (("upgrade", "head"), ("check",)):
             subprocess.run([sys.executable, "-m", "alembic", *args], check=True,
@@ -107,7 +107,7 @@ async def main():
                 await session.commit()
                 assert await recover_pending_uploads(session) == 1
                 await session.commit()
-            report["checks"].append("committed upload without broker message → durable recovery → real worker")
+            report["checks"].append("committed upload without broker message â†’ durable recovery â†’ real worker")
             doc_b = await upload("Annual leave policy alternate", "All full-time employees receive exactly 30 days of annual paid leave per year.")
 
             async def wait_document(doc_id, version_count=1, failed=False):
@@ -127,7 +127,7 @@ async def main():
             versions_a = await wait_document(doc_a)
             await wait_document(doc_b)
             report["timings_seconds"]["two_uploads_to_ready"] = round(time.monotonic() - started, 2)
-            report["checks"].append("HTTP upload → MinIO → Redis/Celery worker → extraction → real embeddings → Qdrant → ready")
+            report["checks"].append("HTTP upload â†’ MinIO â†’ Redis/Celery worker â†’ extraction â†’ real embeddings â†’ Qdrant â†’ ready")
             conversation = await request("POST", f"{prefix}/conversations", headers=headers, json={})
             started = time.monotonic()
             answer = await request("POST", f"{prefix}/conversations/{conversation['id']}/messages",
@@ -136,7 +136,7 @@ async def main():
             assert {c["document_id"] for c in citations} == {doc_a, doc_b}, "Answer must cite both real documents"
             assert all(c["quoted_text"] and c["chunk_id"] for c in citations)
             report["timings_seconds"]["multi_document_answer"] = round(time.monotonic() - started, 2)
-            report["checks"].append("real multi-document retrieval → Groq answer → persisted citations from both documents")
+            report["checks"].append("real multi-document retrieval â†’ Groq answer â†’ persisted citations from both documents")
             assert (await client.get(f"{prefix}/documents/{doc_a}", headers=foreign_headers)).status_code == 403
             assert (await client.get(f"{prefix}/conversations/{conversation['id']}", headers=foreign_headers)).status_code == 403
             report["checks"].append("synthetic cross-tenant document and conversation denials")
@@ -146,7 +146,7 @@ async def main():
             approved = await request("POST", f"{prefix}/actions/{draft['id']}/approve", headers=headers)
             repeated = await request("POST", f"{prefix}/actions/{draft['id']}/approve", headers=headers)
             assert approved["result"]["task_id"] == repeated["result"]["task_id"]
-            report["checks"].append("real model task proposal → persisted approval → idempotent task creation; no external action")
+            report["checks"].append("real model task proposal â†’ persisted approval â†’ idempotent task creation; no external action")
             await request("POST", f"{prefix}/knowledge/scan", headers=headers)
             for _ in range(180):
                 state = await request("GET", f"{prefix}/knowledge/scan", headers=headers)
@@ -161,7 +161,7 @@ async def main():
             assert conflicts and len(conflicts[0]["evidence"]["passages"]) == 2
             await request("PATCH", f"{prefix}/knowledge/findings/{conflicts[0]['id']}",
                           headers=headers, json={"status": "in_review"})
-            report["checks"].append("contradictory documents → real queued scan/vector candidates/Groq judge → persisted evidence → API review")
+            report["checks"].append("contradictory documents â†’ real queued scan/vector candidates/Groq judge â†’ persisted evidence â†’ API review")
             await request("POST", f"{prefix}/documents/{doc_a}/versions", headers=headers,
                 files={"file": ("revision.txt", b"All full-time employees receive exactly 25 days of annual paid leave per year.", "text/plain")})
             versions = await wait_document(doc_a, 2)

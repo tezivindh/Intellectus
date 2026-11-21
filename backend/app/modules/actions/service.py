@@ -1,5 +1,5 @@
-"""
-Actions module — Service layer.
+﻿"""
+Actions module â€” Service layer.
 
 Turns verified answers into reviewable work. An *action run* is an AI- or
 user-drafted proposal (a task or an email draft) that does nothing until a
@@ -8,7 +8,7 @@ person approves it:
     propose (draft payload + source citations) -> edit -> approve | reject
 
 Approving a task proposal creates a ``Task``; approving an email draft
-finalises the text (KnowOps does not send email). Tasks can also be managed
+finalises the text (Intellectus does not send email). Tasks can also be managed
 directly.
 """
 
@@ -101,7 +101,7 @@ def validate_payload(action_type: ActionType, payload: dict[str, Any]) -> dict[s
             f"{'.'.join(str(p) for p in e['loc'])}: {e['msg']}" for e in exc.errors()
         )
         raise AppError(
-            f"Invalid {action_type.value} payload — {problems}", "INVALID_PAYLOAD", 422
+            f"Invalid {action_type.value} payload â€” {problems}", "INVALID_PAYLOAD", 422
         ) from None
 
 
@@ -172,7 +172,7 @@ class ActionsService:
         if payload is not None:
             clean = validate_payload(kind, payload)
         elif message_id and not references and not (instructions and instructions.strip()):
-            # The answer cited nothing — it's a "not found" reply, and drafting
+            # The answer cited nothing â€” it's a "not found" reply, and drafting
             # work from it would just repeat that the information is missing.
             raise AppError(
                 "This answer isn't backed by any document, so there's nothing to draft "

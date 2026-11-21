@@ -1,4 +1,4 @@
-FROM node:22-alpine AS build
+﻿FROM node:22-alpine AS build
 WORKDIR /build
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_API_URL=""
@@ -14,7 +14,7 @@ FROM node:22-alpine AS next-runtime
 # The server needs Node, not npm/yarn or their package-management dependencies.
 RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn* \
     /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/yarn* /usr/local/bin/corepack
-RUN addgroup -g 10001 knowops && adduser -D -u 10001 -G knowops knowops
+RUN addgroup -g 10001 Intellectus && adduser -D -u 10001 -G Intellectus Intellectus
 WORKDIR /app
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3001 HOSTNAME=0.0.0.0
 COPY --from=build --chown=10001:10001 /build/.next/standalone ./

@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
 import { ToastProvider } from "@/components/ui/toast";
 import "./globals.css";
@@ -26,8 +26,8 @@ const serif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "KnowOps",
-    template: "%s · KnowOps",
+    default: "Intellectus",
+    template: "%s Â· Intellectus",
   },
   description:
     "Ask questions across your company's documents and get answers that cite the exact passage they came from.",

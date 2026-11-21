@@ -1,4 +1,4 @@
-"""
+﻿"""
 Vector indexes tracking table.
 
 Records which embedding model and dimensions are used for each collection.

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -euo pipefail
 mkdir -p evidence
 # This quality gate executes BEFORE application runtime images are built.
@@ -10,6 +10,6 @@ terraform -chdir=terraform init -backend=false -input=false
 terraform -chdir=terraform fmt -check -recursive
 terraform -chdir=terraform validate
 terraform -chdir=terraform test
-helm lint helm/knowops
+helm lint helm/Intellectus
 docker compose build backend frontend next 2>&1 | tee evidence/docker-build.txt
 bash scripts/scan-images.sh

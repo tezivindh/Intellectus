@@ -1,4 +1,4 @@
-"""Embeddings service package."""
+﻿"""Embeddings service package."""
 
 from app.services.embeddings.client import EmbeddingService, get_embedding_service
 

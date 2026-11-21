@@ -1,4 +1,4 @@
-# Security gate and scan interpretation
+﻿# Security gate and scan interpretation
 
 The pipeline scans the final backend, Nginx and Next.js server images with Trivy before pushing them to GHCR. It selects vulnerability scanning and HIGH/CRITICAL severity with `--exit-code 1`; a finding blocks image publication and therefore deployment. It does not use `--ignore-unfixed`, a CVE allowlist or `continue-on-error`.
 

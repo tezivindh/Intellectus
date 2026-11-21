@@ -1,5 +1,5 @@
-"""
-Identity module — Authentication service.
+﻿"""
+Identity module â€” Authentication service.
 
 Handles password hashing, JWT creation/verification,
 refresh token rotation with family-based theft detection.
@@ -132,7 +132,7 @@ class AuthService:
         if existing.is_revoked:
             await self._revoke_token_family(existing.token_family)
             raise AppError(
-                "Refresh token reuse detected — all sessions revoked",
+                "Refresh token reuse detected â€” all sessions revoked",
                 "TOKEN_REUSE_DETECTED",
                 401,
             )

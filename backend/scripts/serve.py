@@ -1,4 +1,4 @@
-"""Compose entrypoint: prepare the schema/storage, then replace this process with Uvicorn."""
+﻿"""Compose entrypoint: prepare the schema/storage, then replace this process with Uvicorn."""
 import os
 import subprocess
 import sys

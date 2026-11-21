@@ -1,9 +1,9 @@
-images:
-  backend: { repository: knowops-backend, tag: local, pullPolicy: IfNotPresent }
-  frontend: { repository: knowops-frontend, tag: local, pullPolicy: IfNotPresent }
-  next: { repository: knowops-next, tag: local, pullPolicy: IfNotPresent }
+﻿images:
+  backend: { repository: Intellectus-backend, tag: local, pullPolicy: IfNotPresent }
+  frontend: { repository: Intellectus-frontend, tag: local, pullPolicy: IfNotPresent }
+  next: { repository: Intellectus-next, tag: local, pullPolicy: IfNotPresent }
 imagePullSecrets: []
-secretName: knowops-secrets
+secretName: Intellectus-secrets
 replicas:
   backend: 2
   frontend: 2
@@ -11,12 +11,12 @@ replicas:
 config:
   APP_ENV: production
   DEBUG: "false"
-  CORS_ORIGINS: '["http://knowops.local"]'
+  CORS_ORIGINS: '["http://Intellectus.local"]'
   EMBEDDING_PROVIDER: local
   EMBEDDING_MODEL: BAAI/bge-small-en-v1.5
   EMBEDDING_DIMENSIONS: "384"
-  EMBEDDING_CACHE_DIR: /home/knowops/.cache/fastembed
-  MINIO_BUCKET: knowops-documents
+  EMBEDDING_CACHE_DIR: /home/Intellectus/.cache/fastembed
+  MINIO_BUCKET: Intellectus-documents
   LLM_BASE_URL: https://api.groq.com/openai/v1
   LLM_PRIMARY_MODEL: openai/gpt-oss-120b
   LLM_FALLBACK_MODEL: openai/gpt-oss-20b
@@ -37,7 +37,7 @@ resources:
 ingress:
   enabled: true
   className: traefik
-  host: knowops.local
+  host: Intellectus.local
   annotations: {}
   tls: []
 persistence:

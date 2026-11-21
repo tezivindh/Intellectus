@@ -1,5 +1,5 @@
-"""
-Conversations module — API router.
+﻿"""
+Conversations module â€” API router.
 
 Conversation CRUD and the RAG chat endpoint. All routes are scoped to an
 organization and enforce membership + per-user conversation ownership.

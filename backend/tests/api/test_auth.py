@@ -1,5 +1,5 @@
-"""
-API tests — Authentication endpoints.
+﻿"""
+API tests â€” Authentication endpoints.
 
 Tests registration, login, token refresh, logout, and profile management.
 Includes cross-tenant security tests.

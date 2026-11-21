@@ -1,5 +1,5 @@
-"""
-Ingestion — token-aware chunking.
+﻿"""
+Ingestion â€” token-aware chunking.
 
 Splits extracted segments into overlapping token windows so retrieval can
 return focused passages that still carry their source location.

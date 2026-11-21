@@ -1,5 +1,5 @@
-"""
-Ingestion — text extraction.
+﻿"""
+Ingestion â€” text extraction.
 
 Converts raw file bytes into ordered text segments, preserving page numbers
 (PDF) and section headings (Markdown) so downstream citations can point to
@@ -70,7 +70,7 @@ _W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
 
 def _docx_text(element: Any) -> str:
-    """All text under an element, in order — including text boxes, which
+    """All text under an element, in order â€” including text boxes, which
     python-docx's ``Paragraph.text`` skips."""
     parts: list[str] = []
     for node in element.iter():

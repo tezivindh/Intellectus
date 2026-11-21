@@ -1,4 +1,4 @@
-# Merge AFTER prometheus-values.yaml; Grafana is a kube-prometheus-stack subchart.
+﻿# Merge AFTER prometheus-values.yaml; Grafana is a kube-prometheus-stack subchart.
 grafana:
   service:
     type: ClusterIP

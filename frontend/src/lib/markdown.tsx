@@ -1,8 +1,8 @@
-/**
+﻿/**
  * Minimal, safe Markdown renderer for model output.
  *
  * Supports paragraphs, headings, nested bullet/numbered lists, fenced code,
- * inline code, bold and italics. Everything is rendered as React elements — no
+ * inline code, bold and italics. Everything is rendered as React elements â€” no
  * HTML from the model ever reaches the DOM. Citation markers like [2] are
  * handed to `renderCitation` so callers can make them interactive.
  */
@@ -14,11 +14,11 @@ type CitationRenderer = (index: number, key: string) => ReactNode;
 const INLINE = /(`[^`]+`)|(\*\*[^*]+\*\*)|(\*[^*\s][^*]*\*)|((?:\[\d+\])+)/g;
 
 /**
- * Models emit typographic spaces/hyphens (U+202F, U+2011, …) that many fonts
+ * Models emit typographic spaces/hyphens (U+202F, U+2011, â€¦) that many fonts
  * have no glyph for and render as nothing. Map them to plain equivalents.
  */
 function normalise(text: string): string {
-  return text.replace(/[   ]/g, " ").replace(/[‐‑]/g, "-");
+  return text.replace(/[Â â€‡â€¯]/g, " ").replace(/[â€â€‘]/g, "-");
 }
 
 function inline(text: string, renderCitation: CitationRenderer | undefined, keyBase: string) {
@@ -67,7 +67,7 @@ function inline(text: string, renderCitation: CitationRenderer | undefined, keyB
   return out;
 }
 
-const LIST_ITEM = /^(\s*)([-*•]|\d+[.)])\s+(.*)$/;
+const LIST_ITEM = /^(\s*)([-*â€¢]|\d+[.)])\s+(.*)$/;
 
 interface ListNode {
   ordered: boolean;

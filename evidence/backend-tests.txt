@@ -1,4 +1,4 @@
-All checks passed!
+﻿All checks passed!
 Success: no issues found in 71 source files
 ============================= test session starts ==============================
 platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0 -- /usr/local/bin/python3.12

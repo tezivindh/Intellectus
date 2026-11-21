@@ -1,4 +1,4 @@
-"""Shared Redis fixed-window limits; never trust forwarded client IP headers."""
+﻿"""Shared Redis fixed-window limits; never trust forwarded client IP headers."""
 
 import hashlib
 from collections.abc import Awaitable
@@ -23,7 +23,7 @@ class RateLimiter:
         digest = hashlib.sha256(peer.encode()).hexdigest()
         count = await cast(
             Awaitable[str],
-            self.redis.eval(_SCRIPT, 1, f"knowops:limit:{category}:{digest}", "60"),
+            self.redis.eval(_SCRIPT, 1, f"Intellectus:limit:{category}:{digest}", "60"),
         )
         return int(count) <= limit
 

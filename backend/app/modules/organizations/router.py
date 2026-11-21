@@ -1,5 +1,5 @@
-"""
-Organizations module — API router.
+﻿"""
+Organizations module â€” API router.
 
 Organization CRUD, membership management, and group operations.
 All endpoints require authentication and organization membership.

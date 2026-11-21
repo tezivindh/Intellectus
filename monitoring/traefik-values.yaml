@@ -1,4 +1,4 @@
-# Local NodePorts also work on an EKS LoadBalancer service.
+﻿# Local NodePorts also work on an EKS LoadBalancer service.
 service:
   type: LoadBalancer
 ports:

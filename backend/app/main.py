@@ -1,4 +1,4 @@
-"""
+﻿"""
 FastAPI application factory.
 
 Creates the application with middleware, routers, exception handlers,
@@ -35,13 +35,13 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifecycle: startup and shutdown."""
     settings = get_settings()
     logger.info(
-        "Starting KnowOps",
+        "Starting Intellectus",
         environment=settings.app_env,
         debug=settings.debug,
     )
     yield
     await app.state.rate_limiter.close()
-    logger.info("Shutting down KnowOps")
+    logger.info("Shutting down Intellectus")
 
 
 def create_app() -> FastAPI:
@@ -181,10 +181,10 @@ def _register_routers(app: FastAPI) -> None:
     app.include_router(knowledge_router, prefix="/api/v1")
     app.include_router(actions_router, prefix="/api/v1")
 
-    # Health check — no auth required
+    # Health check â€” no auth required
     @app.get("/health", tags=["health"])
     async def health_check() -> dict[str, str]:
-        return {"status": "healthy", "service": "knowops"}
+        return {"status": "healthy", "service": "Intellectus"}
 
     @app.get("/ready", tags=["health"])
     async def readiness_check() -> JSONResponse:

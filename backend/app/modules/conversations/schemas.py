@@ -1,5 +1,5 @@
-"""
-Conversations module — Pydantic schemas.
+﻿"""
+Conversations module â€” Pydantic schemas.
 
 Request/response models for conversations, messages, and citations.
 """

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -219,7 +219,7 @@ function NoOrganization({ email, onSignOut }: { email: string; onSignOut: () => 
       <main className="mx-auto max-w-md px-6 pb-16 pt-[6vh]">
         <h1 className="fade-in font-serif text-[30px] font-semibold leading-tight">You&apos;re in. One more step.</h1>
         <p className="fade-in mt-2 text-[14px] text-ink-2" style={{ "--delay": "60ms" } as React.CSSProperties}>
-          KnowOps works inside an organization — your company&apos;s shared space for documents and answers.
+          Intellectus works inside an organization - your company&apos;s shared space for documents and answers.
         </p>
 
         <section
@@ -228,13 +228,13 @@ function NoOrganization({ email, onSignOut }: { email: string; onSignOut: () => 
         >
           <h2 className="text-[15px] font-semibold">Joining your team?</h2>
           <p className="mt-1 text-[13.5px] leading-relaxed text-ink-2">
-            Ask an admin to add <span className="font-medium text-ink">{email}</span> under Settings → Members. You&apos;ll
-            be taken in automatically — no need to refresh.
+            Ask an admin to add <span className="font-medium text-ink">{email}</span> under Settings â†’ Members. You&apos;ll
+            be taken in automatically â€” no need to refresh.
           </p>
           <div className="mt-4 flex items-center gap-3 text-[12.5px] text-muted">
             <span className="inline-flex items-center gap-2" role="status">
               <span className="size-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
-              Checking for an invitation…
+              Checking for an invitationâ€¦
             </span>
             <Button size="sm" variant="ghost" loading={checking} onClick={checkNow} className="ml-auto">
               Check now

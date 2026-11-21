@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -169,7 +169,7 @@ export function AskScreen() {
   }
 
   async function remove(c: ConversationSummary) {
-    if (!window.confirm(`Delete “${c.title}”? This can't be undone.`)) return;
+    if (!window.confirm(`Delete â€œ${c.title}â€? This can't be undone.`)) return;
     try {
       await api.deleteConversation(orgId, c.id);
       setConversations((list) => list?.filter((x) => x.id !== c.id) ?? null);
@@ -283,7 +283,7 @@ export function AskScreen() {
                     <Question text={pending} />
                     <p className="mt-3 flex items-center gap-2 text-[13.5px] text-muted" role="status">
                       <Spinner className="size-3.5" />
-                      Searching your documents and writing an answer…
+                      Searching your documents and writing an answerâ€¦
                     </p>
                   </div>
                 )}
@@ -321,7 +321,7 @@ export function AskScreen() {
               </Button>
             </div>
             <p className="mt-1.5 text-[11.5px] text-muted">
-              <Kbd>Enter</Kbd> to send · <Kbd>Shift</Kbd>+<Kbd>Enter</Kbd> for a new line
+              <Kbd>Enter</Kbd> to send Â· <Kbd>Shift</Kbd>+<Kbd>Enter</Kbd> for a new line
             </p>
           </form>
         </div>
@@ -442,7 +442,7 @@ function Source({
   onToggle: () => void;
   ref: (el: HTMLLIElement | null) => void;
 }) {
-  const where = [c.section_heading, c.page_number ? `page ${c.page_number}` : null].filter(Boolean).join(" · ");
+  const where = [c.section_heading, c.page_number ? `page ${c.page_number}` : null].filter(Boolean).join(" Â· ");
   return (
     <li ref={ref} className={open ? "bg-surface" : ""}>
       <button type="button" onClick={onToggle} aria-expanded={open} className="flex w-full items-baseline gap-2.5 px-1 py-2 text-left text-[13px] hover:bg-surface-2/50">
@@ -518,7 +518,7 @@ function AnswerActions({
               {label}
               {existing.status === "proposed" && (
                 <>
-                  {" · "}
+                  {" Â· "}
                   <Link href="/app/actions" className="text-accent hover:underline">
                     Review it
                   </Link>

@@ -1,5 +1,5 @@
-"""
-Identity module — SQLAlchemy models.
+﻿"""
+Identity module â€” SQLAlchemy models.
 
 Users, refresh tokens, and authentication state.
 Password hashes use bcrypt. Refresh tokens implement

@@ -1,5 +1,5 @@
-"""
-Documents module — Pydantic schemas.
+﻿"""
+Documents module â€” Pydantic schemas.
 
 Request/response models for document CRUD, upload, and permission management.
 """

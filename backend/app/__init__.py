@@ -1,1 +1,1 @@
-# KnowOps Backend
+# Intellectus Backend

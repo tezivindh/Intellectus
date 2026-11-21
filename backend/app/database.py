@@ -1,4 +1,4 @@
-"""
+﻿"""
 Database engine and session management.
 
 Async SQLAlchemy setup with connection pooling.

@@ -1,4 +1,4 @@
-Release "traefik" has been upgraded. Happy Helming!
+﻿Release "traefik" has been upgraded. Happy Helming!
 NAME: traefik
 LAST DEPLOYED: Fri Oct 16 22:43:55 2026
 NAMESPACE: traefik

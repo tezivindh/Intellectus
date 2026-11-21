@@ -1,33 +1,33 @@
-services:
+﻿services:
   # ---------------------------------------------------------------------------
-  # PostgreSQL — Primary database
+  # PostgreSQL â€” Primary database
   # ---------------------------------------------------------------------------
   postgres:
     image: postgres:16-alpine
-    container_name: knowops-postgres
+    container_name: Intellectus-postgres
     environment:
-      POSTGRES_USER: knowops
-      POSTGRES_PASSWORD: knowops
-      POSTGRES_DB: knowops
+      POSTGRES_USER: Intellectus
+      POSTGRES_PASSWORD: Intellectus
+      POSTGRES_DB: Intellectus
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./backend/scripts/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U knowops"]
+      test: ["CMD-SHELL", "pg_isready -U Intellectus"]
       interval: 5s
       timeout: 5s
       retries: 5
     networks:
-      - knowops
+      - Intellectus
 
   # ---------------------------------------------------------------------------
-  # Redis — Job queue and caching
+  # Redis â€” Job queue and caching
   # ---------------------------------------------------------------------------
   redis:
     image: redis:7-alpine
-    container_name: knowops-redis
+    container_name: Intellectus-redis
     ports:
       - "127.0.0.1:6379:6379"
     volumes:
@@ -38,14 +38,14 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - knowops
+      - Intellectus
 
   # ---------------------------------------------------------------------------
-  # Qdrant — Vector search engine
+  # Qdrant â€” Vector search engine
   # ---------------------------------------------------------------------------
   qdrant:
     image: qdrant/qdrant:v1.12.4
-    container_name: knowops-qdrant
+    container_name: Intellectus-qdrant
     ports:
       - "127.0.0.1:6333:6333"
       - "127.0.0.1:6334:6334"
@@ -63,18 +63,18 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - knowops
+      - Intellectus
 
   # ---------------------------------------------------------------------------
-  # MinIO — S3-compatible object storage
+  # MinIO â€” S3-compatible object storage
   # ---------------------------------------------------------------------------
   minio:
     image: cgr.dev/chainguard/minio@sha256:f74600a1a46330cdbda1ef760d17a96bd6e0f4a6f0a2c49792ca3ee7e4c6fa18
-    container_name: knowops-minio
+    container_name: Intellectus-minio
     command: server /data --console-address ":9001"
     environment:
-      MINIO_ROOT_USER: knowops
-      MINIO_ROOT_PASSWORD: knowops123
+      MINIO_ROOT_USER: Intellectus
+      MINIO_ROOT_PASSWORD: Intellectus123
       MC_CONFIG_DIR: /tmp/.mc
     ports:
       - "127.0.0.1:9000:9000"
@@ -91,17 +91,17 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - knowops
+      - Intellectus
 
   # ---------------------------------------------------------------------------
-  # Backend API — FastAPI
+  # Backend API â€” FastAPI
   # ---------------------------------------------------------------------------
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: knowops-backend:local
-    container_name: knowops-backend
+    image: Intellectus-backend:local
+    container_name: Intellectus-backend
     healthcheck:
       test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready', timeout=4)"]
       interval: 10s
@@ -114,16 +114,16 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops
-      TEST_DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops_test
+      DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus
+      TEST_DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus_test
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
       MINIO_ENDPOINT: minio:9000
       QDRANT_HOST: qdrant
-      EMBEDDING_CACHE_DIR: /home/knowops/.cache/fastembed
+      EMBEDDING_CACHE_DIR: /home/Intellectus/.cache/fastembed
     volumes:
-      - embedding_cache:/home/knowops/.cache
+      - embedding_cache:/home/Intellectus/.cache
     depends_on:
       postgres:
         condition: service_healthy
@@ -134,17 +134,17 @@ services:
       minio:
         condition: service_healthy
     networks:
-      - knowops
+      - Intellectus
 
   # ---------------------------------------------------------------------------
-  # Worker — Celery background jobs
+  # Worker â€” Celery background jobs
   # ---------------------------------------------------------------------------
   worker:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: knowops-backend:local
-    container_name: knowops-worker
+    image: Intellectus-backend:local
+    container_name: Intellectus-worker
     command: >
       celery -A app.services.queue.celery_app worker
       --loglevel=info
@@ -152,16 +152,16 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops
-      TEST_DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops_test
+      DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus
+      TEST_DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus_test
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
       MINIO_ENDPOINT: minio:9000
       QDRANT_HOST: qdrant
-      EMBEDDING_CACHE_DIR: /home/knowops/.cache/fastembed
+      EMBEDDING_CACHE_DIR: /home/Intellectus/.cache/fastembed
     volumes:
-      - embedding_cache:/home/knowops/.cache
+      - embedding_cache:/home/Intellectus/.cache
     depends_on:
       backend:
         condition: service_healthy
@@ -174,28 +174,28 @@ services:
       minio:
         condition: service_healthy
     networks:
-      - knowops
+      - Intellectus
 
   reconciler:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: knowops-backend:local
-    container_name: knowops-reconciler
+    image: Intellectus-backend:local
+    container_name: Intellectus-reconciler
     command: python -m app.services.queue.reconcile
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops
-      TEST_DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops_test
+      DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus
+      TEST_DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus_test
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
       MINIO_ENDPOINT: minio:9000
       QDRANT_HOST: qdrant
-      EMBEDDING_CACHE_DIR: /home/knowops/.cache/fastembed
+      EMBEDDING_CACHE_DIR: /home/Intellectus/.cache/fastembed
     volumes:
-      - embedding_cache:/home/knowops/.cache
+      - embedding_cache:/home/Intellectus/.cache
     depends_on:
       backend:
         condition: service_healthy
@@ -208,23 +208,23 @@ services:
       minio:
         condition: service_healthy
     networks:
-      - knowops
+      - Intellectus
 
 
   next:
-    image: knowops-next:local
+    image: Intellectus-next:local
     build:
       context: ./frontend
       target: next-runtime
     networks:
-      - knowops
+      - Intellectus
 
   frontend:
-    image: knowops-frontend:local
+    image: Intellectus-frontend:local
     build:
       context: ./frontend
       target: runtime
-    container_name: knowops-frontend
+    container_name: Intellectus-frontend
     ports:
       - "3000:8080"
       - "5173:8080"
@@ -232,7 +232,7 @@ services:
       - backend
       - next
     networks:
-      - knowops
+      - Intellectus
 
   test:
     profiles: [test]
@@ -243,14 +243,14 @@ services:
       APP_ENV: testing
       SECRET_KEY: test-secret-key-that-is-at-least-32-characters-long
       JWT_SECRET_KEY: test-jwt-secret-key-at-least-32-characters-long
-      DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops_test
-      TEST_DATABASE_URL: postgresql+asyncpg://knowops:knowops@postgres:5432/knowops_test
+      DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus_test
+      TEST_DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@postgres:5432/Intellectus_test
       LLM_API_KEY: test-key
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      - knowops
+      - Intellectus
 
 volumes:
   embedding_cache:
@@ -260,5 +260,5 @@ volumes:
   minio_data:
 
 networks:
-  knowops:
+  Intellectus:
     driver: bridge

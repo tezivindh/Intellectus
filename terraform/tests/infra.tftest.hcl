@@ -1,4 +1,4 @@
-mock_provider "aws" {
+﻿mock_provider "aws" {
   mock_data "aws_availability_zones" {
     defaults = { names = ["ap-south-1a", "ap-south-1b"] }
   }

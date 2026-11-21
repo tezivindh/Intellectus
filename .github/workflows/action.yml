@@ -1,4 +1,4 @@
-name: KnowOps capstone
+﻿name: Intellectus capstone
 on:
   push:
     branches: [main]
@@ -20,19 +20,19 @@ jobs:
       postgres:
         image: postgres:16-alpine
         env:
-          POSTGRES_USER: knowops
-          POSTGRES_PASSWORD: knowops
-          POSTGRES_DB: knowops_test
+          POSTGRES_USER: Intellectus
+          POSTGRES_PASSWORD: Intellectus
+          POSTGRES_DB: Intellectus_test
         ports: [5432:5432]
         options: >-
-          --health-cmd "pg_isready -U knowops" --health-interval 5s
+          --health-cmd "pg_isready -U Intellectus" --health-interval 5s
           --health-timeout 5s --health-retries 10
     env:
       APP_ENV: testing
       SECRET_KEY: test-secret-key-that-is-at-least-32-characters-long
       JWT_SECRET_KEY: test-jwt-secret-key-at-least-32-characters-long
-      DATABASE_URL: postgresql+asyncpg://knowops:knowops@localhost:5432/knowops_test
-      TEST_DATABASE_URL: postgresql+asyncpg://knowops:knowops@localhost:5432/knowops_test
+      DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@localhost:5432/Intellectus_test
+      TEST_DATABASE_URL: postgresql+asyncpg://Intellectus:Intellectus@localhost:5432/Intellectus_test
       LLM_API_KEY: test-key
     defaults:
       run:
@@ -95,8 +95,8 @@ jobs:
       - uses: azure/setup-helm@v4.3.0
         with:
           version: v3.17.3
-      - run: helm lint helm/knowops
-      - run: helm template knowops helm/knowops --namespace knowops > rendered.yaml
+      - run: helm lint helm/Intellectus
+      - run: helm template Intellectus helm/Intellectus --namespace Intellectus > rendered.yaml
 
   secret-scan:
     runs-on: ubuntu-latest
@@ -169,13 +169,13 @@ jobs:
   deploy:
     needs: images
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.CAPSTONE_DEPLOY_ENABLED == 'true'
-    runs-on: [self-hosted, linux, knowops-deploy]
+    runs-on: [self-hosted, linux, Intellectus-deploy]
     environment: capstone
     permissions:
       contents: read
       id-token: write
     concurrency:
-      group: knowops-deployment
+      group: Intellectus-deployment
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
@@ -196,7 +196,7 @@ jobs:
         run: |
           set -euo pipefail
           repository="ghcr.io/${GITHUB_REPOSITORY,,}"
-          helm upgrade --install knowops helm/knowops --namespace knowops \
+          helm upgrade --install Intellectus helm/Intellectus --namespace Intellectus \
             --set-string images.backend.repository="$repository/backend" \
             --set-string images.frontend.repository="$repository/frontend" \
             --set-string images.next.repository="$repository/next" \
@@ -207,6 +207,6 @@ jobs:
             --set-string persistence.storageClass="${STORAGE_CLASS:-gp3}" \
             --set metrics.serviceMonitor.enabled=true \
             --wait --wait-for-jobs --timeout 15m --atomic
-          kubectl rollout status deployment/knowops-backend -n knowops --timeout=5m
-          kubectl rollout status deployment/knowops-frontend -n knowops --timeout=5m
-          kubectl get pods,svc,ingress -n knowops
+          kubectl rollout status deployment/Intellectus-backend -n Intellectus --timeout=5m
+          kubectl rollout status deployment/Intellectus-frontend -n Intellectus --timeout=5m
+          kubectl get pods,svc,ingress -n Intellectus

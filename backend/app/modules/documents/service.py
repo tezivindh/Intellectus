@@ -1,5 +1,5 @@
-"""
-Documents module — Service layer.
+﻿"""
+Documents module â€” Service layer.
 
 Document CRUD, file upload with version creation, permission management,
 and lifecycle operations (archive, restore). All operations enforce
@@ -677,11 +677,11 @@ class DocumentService:
         """Check if user has the required permission level on a document.
 
         Resolution order:
-        1. Organization owner/admin → full access
+        1. Organization owner/admin â†’ full access
         2. Org viewers never get more than view access
-        3. Document owner → full access
+        3. Document owner â†’ full access
         4. Explicit grant to the user or one of their groups
-        5. Documents without any grant → every member may view
+        5. Documents without any grant â†’ every member may view
         """
         membership = await self._require_active_membership(user_id, document.organization_id)
 

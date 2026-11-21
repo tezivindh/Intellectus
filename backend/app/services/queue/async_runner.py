@@ -1,4 +1,4 @@
-"""Keep async clients on one event loop for the lifetime of a worker process."""
+﻿"""Keep async clients on one event loop for the lifetime of a worker process."""
 
 import asyncio
 from collections.abc import Coroutine

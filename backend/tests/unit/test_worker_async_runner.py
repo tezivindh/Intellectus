@@ -1,4 +1,4 @@
-"""Async resources must remain usable across consecutive Celery tasks."""
+﻿"""Async resources must remain usable across consecutive Celery tasks."""
 
 import asyncio
 

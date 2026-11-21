@@ -1,4 +1,4 @@
-"""
+﻿"""
 Test configuration and shared fixtures.
 
 Uses separate test database with transaction rollback per test.
@@ -10,7 +10,7 @@ from collections.abc import AsyncGenerator
 
 # Configure the environment before the app (and its settings cache) loads.
 TEST_DATABASE_URL = os.environ.get(
-    "TEST_DATABASE_URL", "postgresql+asyncpg://knowops:knowops@localhost:5432/knowops_test"
+    "TEST_DATABASE_URL", "postgresql+asyncpg://Intellectus:Intellectus@localhost:5432/Intellectus_test"
 )
 os.environ.update(
     APP_ENV="testing",

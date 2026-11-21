@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 /** Wordmark: a bracketed index mark, echoing the citation markers in answers. */
 export function Logo({ href = "/" }: { href?: string }) {
@@ -10,7 +10,7 @@ export function Logo({ href = "/" }: { href?: string }) {
       >
         [1]
       </span>
-      KnowOps
+      Intellectus
     </Link>
   );
 }

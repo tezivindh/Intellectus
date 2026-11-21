@@ -1,8 +1,8 @@
-{
-  "uid": "knowops-overview",
-  "title": "KnowOps application",
+﻿{
+  "uid": "Intellectus-overview",
+  "title": "Intellectus application",
   "tags": [
-    "knowops",
+    "Intellectus",
     "capstone"
   ],
   "schemaVersion": 39,
@@ -29,7 +29,7 @@
       },
       "targets": [
         {
-          "expr": "sum(knowops_http_requests_total{namespace=\"knowops\"})",
+          "expr": "sum(Intellectus_http_requests_total{namespace=\"Intellectus\"})",
           "refId": "A",
           "legendFormat": "HTTP requests (total)"
         }
@@ -66,7 +66,7 @@
       },
       "targets": [
         {
-          "expr": "sum(rate(knowops_http_requests_total{namespace=\"knowops\"}[5m]))",
+          "expr": "sum(rate(Intellectus_http_requests_total{namespace=\"Intellectus\"}[5m]))",
           "refId": "A",
           "legendFormat": "Requests per second"
         }
@@ -103,7 +103,7 @@
       },
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum by (le) (rate(knowops_http_request_duration_seconds_bucket{namespace=\"knowops\"}[5m])))",
+          "expr": "histogram_quantile(0.95, sum by (le) (rate(Intellectus_http_request_duration_seconds_bucket{namespace=\"Intellectus\"}[5m])))",
           "refId": "A",
           "legendFormat": "95th percentile latency"
         }
@@ -140,7 +140,7 @@
       },
       "targets": [
         {
-          "expr": "sum(rate(knowops_http_requests_total{namespace=\"knowops\",status=~\"5..\"}[5m]))",
+          "expr": "sum(rate(Intellectus_http_requests_total{namespace=\"Intellectus\",status=~\"5..\"}[5m]))",
           "refId": "A",
           "legendFormat": "Server error rate"
         }

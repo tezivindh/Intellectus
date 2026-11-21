@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AskScreen } from "@/components/screens/ask";
 import { Loading } from "@/components/ui/spinner";

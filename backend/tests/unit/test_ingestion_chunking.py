@@ -1,4 +1,4 @@
-"""Unit tests for token-aware chunking (ingestion)."""
+﻿"""Unit tests for token-aware chunking (ingestion)."""
 
 from app.modules.ingestion.chunking import chunk_segments
 from app.modules.ingestion.extractors import Segment
@@ -63,7 +63,7 @@ def test_documents_may_contain_literal_tokenizer_control_text():
 
 
 def test_multilingual_chunks_preserve_original_characters():
-    text = "தமிழ் 日本語 😀 हिन्दी " * 2000
+    text = "à®¤à®®à®¿à®´à¯ æ—¥æœ¬èªž ðŸ˜€ à¤¹à¤¿à¤¨à¥à¤¦à¥€ " * 2000
     for size, overlap in [(512, 64), (10, 2), (1, 0)]:
         chunks = chunk_segments([Segment(text=text)], chunk_size=size, overlap=overlap)
         assert all("\ufffd" not in chunk.text and chunk.text in text for chunk in chunks)

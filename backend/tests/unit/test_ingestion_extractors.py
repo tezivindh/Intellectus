@@ -1,4 +1,4 @@
-"""Unit tests for text extraction (ingestion)."""
+﻿"""Unit tests for text extraction (ingestion)."""
 
 import io
 
